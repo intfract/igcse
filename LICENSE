@@ -618,6 +618,10 @@ an absolute waiver of all civil liability in connection with the
 Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 
+  18. Attribution
+  You MUST include a copy of this license in your code repository or project.
+You MUST provide a link to https://github.com/intfract in your README files.
+
                      END OF TERMS AND CONDITIONS
 
             How to Apply These Terms to Your New Programs
