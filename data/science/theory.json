@@ -1,0 +1,42 @@
+{
+  "questions": [
+    {
+      "background": "Table 1.1 shows some features of aerobic and anaerobic respiration.",
+      "parts": [
+        {
+          "type": "table",
+          "marks": 4,
+          "question": "Tick the boxes that show all the correct features for each type of respiration.",
+          "answer": [
+            [1, 1, 0, 1],
+            [0, 1, 1, 0],
+            [0, 1, 0, 1]
+          ],
+          "table": {
+            "columns": [
+              "type of respiration", "oxygen is a reactant", "glucose is a reactant", "lactic acid is a product", "carbon dioxide is a product"
+            ],
+            "rows": [
+              "aerobic",
+              "anaerobic respiration in muscles",
+              "anaerobic respiration in yeast"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "marks": 1,
+          "question": "State one industrial use of anaerobic respiration in yeast.",
+          "answer": "bread making / AVP ; "
+        },
+        {
+          "type": "text",
+          "marks": 1,
+          "question": "Describe one disadvantage of anaerobic respiration in terms of energy release.",
+          "answer": "less energy is released **per glucose molecule** than aerobic respiration ;",
+          "keywords": ["per glucose molecule"]
+        }
+      ]
+    }
+  ]
+}

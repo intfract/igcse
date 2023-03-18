@@ -1,0 +1,28 @@
+{
+  "name": "igcse",
+  "description": "IGCSE API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "inflict": "^4.0.0",
+    "node-fetch": "^3.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intfract/igcse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intfract/igcse/issues"
+  },
+  "homepage": "https://github.com/intfract/igcse#readme"
+}
