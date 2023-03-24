@@ -45,22 +45,32 @@ for (const item of list.children) {
   if (pathname.startsWith('/courses/')) {
     if (subject.toLowerCase() === current.toLowerCase()) {
       item.setAttribute('aria-current', 'page')
+      item.setAttribute('aria-selected', 'true')
+      item.classList.add('mdc-list-item--activated')
+    } else {
+      item.classList.remove('mdc-list-item--activated')
     }
   } else if (pathname === '/') {
     if (subject === 'Home') {
       item.setAttribute('aria-current', 'page')
+      item.setAttribute('aria-current', 'page')
+      item.setAttribute('aria-selected', 'true')
+      item.classList.add('mdc-list-item--activated')
+    } else {  
+      item.classList.remove('mdc-list-item--activated')
     }
   }
-  item.addEventListener('click', e => {
-    const appbarTitle = document.querySelector('.mdc-top-app-bar__title')
-    console.log(subject)
-    if (subject === 'Home') {
-      window.history.replaceState({}, '', '/')
-    } else {
-      window.history.replaceState({}, '', url(subject, '/courses'))
-      appbarTitle.innerHTML = `IGCSE ${subject.toUpperCase()}`
-    }
-  })
+  // item.addEventListener('click', e => {
+  //   const appbarTitle = document.querySelector('.mdc-top-app-bar__title')
+  //   console.log(subject)
+  //   if (subject === 'Home') {
+  //     window.history.replaceState({}, '', '/')
+  //     appbarTitle.innerHTML = `IGCSE`
+  //   } else {
+  //     window.history.replaceState({}, '', url(subject, '/courses'))
+  //     appbarTitle.innerHTML = `IGCSE ${subject.toUpperCase()}`
+  //   }
+  // })
   component('ripple', item)
 }
 
