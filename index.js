@@ -25,8 +25,16 @@ app.get('/', async (req, res) => {
   res.send(render('views', '', { title: 'IGCSE', path: '' })) 
 })
 
+app.get('/content', (req, res) => {
+  res.send(render('views', 'content.html', {}))
+})
+
 app.get('/courses/:subject', (req, res) => {
   res.send(render(`views/courses/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../' }))
+})
+
+app.get('/courses/:subject/content', (req, res) => {
+  res.send(render(`views/courses/${req.params.subject}`, 'content.html', {}))
 })
 
 app.listen(port)

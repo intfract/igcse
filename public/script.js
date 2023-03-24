@@ -26,8 +26,8 @@ function component(name, element) {
   return mdc[camel(name)][`MDC${pascal(name)}`].attachTo(element)
 }
 
-const { pathname } = window.location
-const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
+const { pathname } = window.location // raw name of path on load
+const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ') // name of current page on load
 
 const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
@@ -60,22 +60,25 @@ for (const item of list.children) {
       item.classList.remove('mdc-list-item--activated')
     }
   }
-  // item.addEventListener('click', e => {
-  //   const appbarTitle = document.querySelector('.mdc-top-app-bar__title')
-  //   console.log(subject)
-  //   if (subject === 'Home') {
-  //     window.history.replaceState({}, '', '/')
-  //     appbarTitle.innerHTML = `IGCSE`
-  //   } else {
-  //     window.history.replaceState({}, '', url(subject, '/courses'))
-  //     appbarTitle.innerHTML = `IGCSE ${subject.toUpperCase()}`
-  //   }
-  // })
+  item.addEventListener('click', async e => {
+    e.preventDefault()
+    const appbarTitle = await document.querySelector('.mdc-top-app-bar__title')
+    if (subject === 'Home') {
+      window.history.replaceState({}, '', '/')
+      appbarTitle.innerHTML = `IGCSE`
+    } else {
+      window.history.replaceState({}, '', url(subject, '/courses'))
+      appbarTitle.innerHTML = `IGCSE ${subject.toUpperCase()}`
+    }
+    const response = await fetch((window.location.pathname + '/content').replace('//', '/'))
+    const page = await response.text()
+    main.innerHTML = page
+  })
   component('ripple', item)
 }
 
 document.body.addEventListener('MDCDrawer:closed', () => {
-  
+  // action after drawer closed
 })
 
 appbar.listen('MDCTopAppBar:nav', e => {
