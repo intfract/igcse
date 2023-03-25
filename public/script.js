@@ -36,6 +36,8 @@ const searchbar = component('text-field', document.querySelector('.mdc-top-app-b
 const list = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
 
+transition()
+
 list.addEventListener('click', (event) => {
   drawer.open = false;
 })
@@ -51,6 +53,7 @@ for (const item of list.children) {
       item.classList.remove('mdc-list-item--activated')
     }
   } else if (pathname === '/') {
+    animate()
     if (subject === 'Home') {
       item.setAttribute('aria-current', 'page')
       item.setAttribute('aria-current', 'page')
@@ -73,6 +76,10 @@ for (const item of list.children) {
     const response = await fetch((window.location.pathname + '/content').replace('//', '/'))
     const page = await response.text()
     main.innerHTML = page
+    transition()
+    if (window.location.pathname === '/') {
+      animate()
+    }
   })
   component('ripple', item)
 }

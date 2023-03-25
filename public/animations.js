@@ -12,4 +12,12 @@ function animate() {
   }, 1200)
 }
 
-animate()
+function transition() {
+  const nodes = document.querySelectorAll('.hidden, .offset')
+  setTimeout(() => {
+    for (const node of nodes) {
+      node.classList.remove('hidden')
+      node.classList.remove('offset')
+    }
+  }, 1000);
+}

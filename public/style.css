@@ -25,9 +25,10 @@ a, button, input, textarea {
   font-family: 'Plus Jakarta Sans';
 }
 
-h1, h2, h3 {
+h1, h2, h3, p, ul {
   opacity: 1;
-  transition: opacity 0.3s ease-out;
+  transform: translate(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 h1 {
@@ -104,6 +105,10 @@ main ul {
 }
 
 .offset {
+  transform: translate(0, 16px) !important;
+}
+
+.hero h1.offset {
   transform: translate(0, 100%) !important;
 }
 
