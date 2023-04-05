@@ -30,11 +30,15 @@ app.get('/content', (req, res) => {
 })
 
 app.get('/courses/:subject', (req, res) => {
-  res.send(render(`views/courses/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../' }))
+  res.send(render(`views/courses/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
 })
 
-app.get('/courses/:subject/content', (req, res) => {
-  res.send(render(`views/courses/${req.params.subject}`, 'content.html', {}))
+app.get('/content/:subject', (req, res) => {
+  res.send(render(`views/courses/${req.params.subject}`, 'content.html', { relative: `courses/${req.params.subject}` }))
+})
+
+app.get('/courses/:subject/:topic', (req, res) => {
+  res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
 })
 
 app.listen(port)

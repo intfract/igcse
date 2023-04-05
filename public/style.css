@@ -23,6 +23,18 @@ a, button, input, textarea {
   outline: none;
   border: 0;
   font-family: 'Plus Jakarta Sans';
+  text-decoration: none;
+}
+
+p a, li a {
+  color: var(--mdc-theme-primary);
+  text-decoration: none;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+p a:hover, li a:hover {
+  opacity: 0.75;
 }
 
 h1, h2, h3, p, ul {
@@ -97,7 +109,11 @@ main ul {
 }
 
 #search-label {
-  color: var(--mdc-theme-background);
+  color: var(--mdc-theme-on-primary);
+}
+
+#search-label + input {
+  caret-color: var(--mdc-theme-on-primary);
 }
 
 .hidden {
@@ -122,7 +138,7 @@ main ul {
   align-items: center;
   padding: 16px;
   background-color: var(--mdc-theme-primary);
-  color: var(--mdc-theme-background);
+  color: var(--mdc-theme-on-primary);
 }
 
 .hero h1 {

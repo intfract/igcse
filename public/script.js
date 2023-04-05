@@ -26,17 +26,47 @@ function component(name, element) {
   return mdc[camel(name)][`MDC${pascal(name)}`].attachTo(element)
 }
 
-const { pathname } = window.location // raw name of path on load
-const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ') // name of current page on load
+function navigate(pathname, current) {
+  transition()
+  for (const item of list.children) {
+    const subject = item.querySelector('.mdc-list-item__text').innerHTML
+    if (pathname.startsWith('/courses/')) {
+      if (subject.toLowerCase() === current.toLowerCase()) {
+        item.setAttribute('aria-current', 'page')
+        item.setAttribute('aria-selected', 'true')
+        item.classList.add('mdc-list-item--activated')
+      } else {
+        item.removeAttribute('aria-current')
+        item.removeAttribute('aria-selected')
+        item.classList.remove('mdc-list-item--activated')
+      }
+    } else if (pathname === '/') {
+      if (subject === 'Home') {
+        item.setAttribute('aria-current', 'page')
+        item.setAttribute('aria-current', 'page')
+        item.setAttribute('aria-selected', 'true')
+        item.classList.add('mdc-list-item--activated')
+        animate()
+      } else { 
+        item.classList.remove('mdc-list-item--activated')
+      }
+    }
+  }
+}
 
+const title = document.querySelector('title')
 const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
 const searchbar = component('text-field', document.querySelector('.mdc-top-app-bar .mdc-text-field'))
+const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
 
 const list = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
 
-transition()
+const { pathname } = window.location
+const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
+
+navigate(pathname, current)
 
 list.addEventListener('click', (event) => {
   drawer.open = false;
@@ -44,42 +74,29 @@ list.addEventListener('click', (event) => {
 
 for (const item of list.children) {
   const subject = item.querySelector('.mdc-list-item__text').innerHTML
-  if (pathname.startsWith('/courses/')) {
-    if (subject.toLowerCase() === current.toLowerCase()) {
-      item.setAttribute('aria-current', 'page')
-      item.setAttribute('aria-selected', 'true')
-      item.classList.add('mdc-list-item--activated')
-    } else {
-      item.classList.remove('mdc-list-item--activated')
-    }
-  } else if (pathname === '/') {
-    animate()
-    if (subject === 'Home') {
-      item.setAttribute('aria-current', 'page')
-      item.setAttribute('aria-current', 'page')
-      item.setAttribute('aria-selected', 'true')
-      item.classList.add('mdc-list-item--activated')
-    } else {  
-      item.classList.remove('mdc-list-item--activated')
-    }
-  }
   item.addEventListener('click', async e => {
     e.preventDefault()
     const appbarTitle = await document.querySelector('.mdc-top-app-bar__title')
     if (subject === 'Home') {
       window.history.replaceState({}, '', '/')
-      appbarTitle.innerHTML = `IGCSE`
+      const name = `IGCSE`
+      title.innerHTML = name
+      appbarTitle.innerHTML = name
     } else {
       window.history.replaceState({}, '', url(subject, '/courses'))
-      appbarTitle.innerHTML = `IGCSE ${subject.toUpperCase()}`
+      const name = `IGCSE ${subject.toUpperCase()}`
+      title.innerHTML = name
+      appbarTitle.innerHTML = name
     }
-    const response = await fetch((window.location.pathname + '/content').replace('//', '/'))
+    const { pathname } = window.location
+    const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
+    const chunks = pathname.split('/')
+    chunks.shift()
+    chunks[0] = ''
+    const response = await fetch(('/content' + chunks.join('/')).replace('//', '/'))
     const page = await response.text()
     main.innerHTML = page
-    transition()
-    if (window.location.pathname === '/') {
-      animate()
-    }
+    navigate(pathname, current)
   })
   component('ripple', item)
 }
@@ -90,4 +107,10 @@ document.body.addEventListener('MDCDrawer:closed', () => {
 
 appbar.listen('MDCTopAppBar:nav', e => {
   drawer.open = !drawer.open
+})
+
+searchbar.root.addEventListener('input', async e => {
+  const query = await input.value
+  // const response = await fetch(`/${query}`)
+  // console.log(await response.text())
 })
