@@ -54,17 +54,43 @@ function navigate(pathname, current) {
   }
 }
 
+function searchItem(k, v) {
+  const result = document.createElement('li')
+  const words = k.split('_')
+  const name = words.length > 1 ? words.reduce((p, c) => sentence(p) + ' ' + sentence(c)) : sentence(words[0])
+  result.classList.add('mdc-list-item')
+  result.innerHTML = `<span class="mdc-list-item__ripple"></span>
+  <span class="material-symbols-rounded mdc-list-item__graphic">
+  ${v.icon}
+  </span>
+  <span class="mdc-list-item__text">
+  ${name}
+  </span>`
+  result.addEventListener('click', e => window.open(v.path))
+  return result
+}
+
 const title = document.querySelector('title')
 const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
 const searchbar = component('text-field', document.querySelector('.mdc-top-app-bar .mdc-text-field'))
 const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
+const searchTopic = document.querySelector('#search-topic')
+const searchCourse = document.querySelector('#search-course')
 
 const list = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
 
 const { pathname } = window.location
 const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
+
+const emojiables = document.querySelectorAll('p, li, .callout')
+
+var delayTimer
+
+for (const emojiable of emojiables) {
+  twemoji.parse(emojiable)
+}
 
 navigate(pathname, current)
 
@@ -111,6 +137,16 @@ appbar.listen('MDCTopAppBar:nav', e => {
 
 searchbar.root.addEventListener('input', async e => {
   const query = await input.value
-  // const response = await fetch(`/${query}`)
-  // console.log(await response.text())
+  const response = await fetch(`/api/search?q=${query}`)
+  const data = await response.json()
+  searchTopic.innerHTML = ''
+  searchCourse.innerHTML = ''
+  if (data.error) return
+  for (const [k, v] of Object.entries(data)) {
+    if (v.topic) {
+      searchTopic.appendChild(searchItem(k, v))
+    } else {
+      searchCourse.appendChild(searchItem(k, v))
+    }
+  }
 })

@@ -8,12 +8,32 @@
       <span class="mdc-top-app-bar__title">#{ title }#</span>
     </section>
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-      <label class="mdc-text-field mdc-text-field--filled">
-        <span class="mdc-text-field__ripple"></span>
-        <span class="mdc-floating-label" id="search-label">Search</span>
-        <input class="mdc-text-field__input" type="text" aria-labelledby="search-label">
-        <span class="mdc-line-ripple"></span>
-      </label>
+      <div class="search">
+        <label class="mdc-text-field mdc-text-field--filled">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label" id="search-label">Search</span>
+          <input class="mdc-text-field__input" type="text" aria-labelledby="search-label">
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <div class="mdc-list-group">
+          <h3 class="mdc-list-group__subheader">Topics</h3>
+          <ul class="mdc-list" id="search-topic">
+            <!-- <li class="mdc-list-item">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="material-symbols-rounded mdc-list-item__graphic">star</span>
+              <span class="mdc-list-item__text">Topic</span>
+            </li> -->
+          </ul>
+          <h3 class="mdc-list-group__subheader">Courses</h3>
+          <ul class="mdc-list" id="search-course">
+            <!-- <li class="mdc-list-item">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="material-symbols-rounded mdc-list-item__graphic">star</span>
+              <span class="mdc-list-item__text">Course</span>
+            </li> -->
+          </ul>
+        </div>
+      </div>
       <button class="material-symbols-rounded mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">
         <div class="mdc-icon-button__ripple"></div>
         search
