@@ -11,8 +11,120 @@
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
       <h1>Search</h1>
+      <div class="filter">
+        <div class="mdc-chip-set mdc-chip-set--filter" role="grid">
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">calculate</span>
+            <span class="mdc-chip__checkmark"> 
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </span> 
+            <span role="gridcell">
+              <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+                <span class="mdc-chip__text">Mathematics</span>
+              </span>
+            </span>
+          </div>
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">terminal</span>
+            <span class="mdc-chip__checkmark"> 
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </span> 
+            <span role="gridcell">
+              <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+                <span class="mdc-chip__text">Computer Science</span>
+              </span>
+            </span>
+          </div>
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">microbiology</span>
+            <span class="mdc-chip__checkmark"> 
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </span> 
+            <span role="gridcell">
+              <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+                <span class="mdc-chip__text">Biology</span>
+              </span>
+            </span>
+          </div>
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">science</span>
+            <span class="mdc-chip__checkmark"> 
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </span> 
+            <span role="gridcell">
+              <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+                <span class="mdc-chip__text">Chemistry</span>
+              </span>
+            </span>
+          </div>
+          <div class="mdc-chip" role="row">
+            <div class="mdc-chip__ripple"></div>
+            <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">speed</span>
+            <span class="mdc-chip__checkmark"> 
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </span> 
+            <span role="gridcell">
+              <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+                <span class="mdc-chip__text">Physics</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="search-cards">
+        <!-- <div class="mdc-card">
+          <div class="mdc-card__primary-action">
+            <div class="mdc-card__media">
+              <span class="material-symbols-rounded">star</span>
+            </div>
+            <div class="mdc-card__ripple"></div>
+          </div>
+          <div class="mdc-card-wrapper__text-section">
+            <h3>Topic</h3>
+            <p>Content</p>
+          </div>
+          <div class="mdc-card__actions">
+            <div class="mdc-card__action-buttons">
+              <button class="mdc-button mdc-card__action mdc-card__action--button">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Open</span>
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="search-actions">
+        <label class="mdc-text-field mdc-text-field--filled">
+          <span class="mdc-text-field__ripple"></span>
+          <span class="mdc-floating-label">Search</span>
+          <input class="mdc-text-field__input" type="text" aria-labelledby="search-label">
+          <span class="mdc-line-ripple"></span>
+        </label>
+        <button class="mdc-button mdc-button--raised mdc-button--leading" id="sniper">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__icon material-symbols-rounded">
+            search
+          </span>
+          <span class="mdc-button__label">Search</span>
+        </button>
+      </div>
     </section>
   </main>
   #{ include('$root.html') }#
+  <script src="../filter.js"></script>
 </body>
 </html>

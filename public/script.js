@@ -70,6 +70,7 @@ function searchItem(k, v) {
   return result
 }
 
+const buttons = document.querySelectorAll('.mdc-button')
 const title = document.querySelector('title')
 const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
@@ -77,6 +78,7 @@ const searchbar = component('text-field', document.querySelector('.mdc-top-app-b
 const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
 const searchTopic = document.querySelector('#search-topic')
 const searchCourse = document.querySelector('#search-course')
+const searchbtn = document.querySelector('.search + button')
 
 const list = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
@@ -90,6 +92,10 @@ var delayTimer
 
 for (const emojiable of emojiables) {
   twemoji.parse(emojiable)
+}
+
+for (const button of buttons) {
+  component('ripple', button)
 }
 
 navigate(pathname, current)
@@ -149,4 +155,8 @@ searchbar.root.addEventListener('input', async e => {
       searchCourse.appendChild(searchItem(k, v))
     }
   }
+})
+
+searchbtn.addEventListener('click', e => {
+  window.open(`/search?q=${input.value}`)
 })

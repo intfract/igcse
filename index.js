@@ -55,7 +55,7 @@ app.get('/api/search', (req, res) => {
   const { query } = req
   console.log(query)
   if (!('q' in query) || !query.q) return res.status(404).json({ error: 'empty query' })
-  const courses = fs.readdirSync('views/courses')
+  if (query.q === '*') query.q = ''
   const result = {}
   const icons = {
     'mathematics': 'calculate',
@@ -64,6 +64,26 @@ app.get('/api/search', (req, res) => {
     'chemistry': 'science',
     'physics': 'speed',
   }
+  if ('scopes' in query) {
+    for (const scope of query.scopes.split(',')) {
+      if (!Object.keys(icons).includes(scope)) return res.status(404).json({ error: 'invalid scope' })
+      const icon = icons[scope]
+      const topics = fs.readdirSync(`views/courses/${scope}`).filter(file => !file.endsWith('.html'))
+      for (const topic of topics) {
+        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+        if (contains(notes, query.q)) {
+          result[topic] = {
+            text: notes,
+            path: `/courses/${scope}/${topic}`,
+            icon,
+            topic: true,
+          }
+        }
+      }
+    }
+    return res.json(result)
+  }
+  const courses = fs.readdirSync('views/courses')
   for (const course of courses) {
     const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
     const icon = icons[course]
@@ -92,7 +112,7 @@ app.get('/api/search', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  res.send(render(`views/search`, '', { title: 'Search Page' }))
+  res.send(render(`views/search`, '', { title: 'Search Page', path: '../' }))
 })
 
 app.listen(port)
