@@ -1,3 +1,44 @@
+(function () {
+  'use strict'
+  if (!Array.isArray) {
+    Array.isArray = function (arg) {
+      return Object.prototype.toString.call(arg) === '[object Array]'
+    }
+  }
+  var qs = {
+    get: function () {
+      var query = window.location.search
+      var obj = {}
+      if (query === '') return obj
+      query = query.slice(1)
+      query = query.split('&')
+      query.map(function (part) {
+        var key
+        var value
+        part = part.split('=')
+        key = part[0]
+        value = part[1]
+        if (!obj[key]) {
+          obj[key] = value
+        } else {
+          if (!Array.isArray(obj[key])) {
+            obj[key] = [obj[key]]
+          }
+          obj[key].push(value)
+        }
+      })
+      return obj
+    },
+  }
+  if (window) {
+    if (!window.qs) {
+      window.qs = qs;
+    } else {
+      throw new Error('Error bootstrapping qs: window.qs already set.');
+    }
+  }
+})()
+
 function searchCard(k, v) {
   const card = document.createElement('div')
   card.classList.add('mdc-card')

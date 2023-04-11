@@ -9,6 +9,7 @@
   --mdc-theme-on-secondary: #fff;
   --mdc-theme-on-surface: #000;
   --mdc-theme-callout: #eee;
+  --mdc-warning: #eea71f20;
   --mdc-theme-text-primary-on-background: #22222240;
   --mdc-typography-font-family: 'Plus Jakarta Sans';
 }
@@ -46,7 +47,7 @@ h1, h2, h3, p, ul {
 }
 
 h1, h2, h3 {
-  margin-block-end: 0;
+  margin-block: 1em 0.5em;
 }
 
 h1 {
@@ -101,6 +102,10 @@ main ul {
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
+.callout.warning {
+  background-color: var(--mdc-warning);
+}
+
 img.emoji {
   height: 1em;
   width: 1em;
@@ -128,6 +133,26 @@ img.emoji {
 
 .diagram img {
   width: 100%;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.columns > ul, .columns > p, .columns > .column {
+  width: 45%;
+}
+
+.plus {
+  color: var(--mdc-theme-primary);
+  list-style-type: '+   ';
+}
+
+.minus {
+  color: var(--mdc-theme-secondary);
+  list-style-type: '-   ';
 }
 
 .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {

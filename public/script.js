@@ -57,7 +57,7 @@ function navigate(pathname, current) {
 function searchItem(k, v) {
   const result = document.createElement('li')
   const words = k.split('_')
-  const name = words.length > 1 ? words.reduce((p, c) => sentence(p) + ' ' + sentence(c)) : sentence(words[0])
+  const name = words.length > 1 ? words.reduce((p, c) => c === 'and' ? sentence(p) + ' ' + c : sentence(p) + ' ' + sentence(c)) : sentence(words[0])
   result.classList.add('mdc-list-item')
   result.innerHTML = `<span class="mdc-list-item__ripple"></span>
   <span class="material-symbols-rounded mdc-list-item__graphic">
