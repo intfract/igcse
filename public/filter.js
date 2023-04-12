@@ -66,18 +66,24 @@ function searchCard(k, v) {
 const chipset = mdc.chips.MDCChipSet.attachTo(document.querySelector('.mdc-chip-set'))
 const sniper = document.querySelector('#sniper')
 const querybar = component('text-field', document.querySelector('.search-actions .mdc-text-field'))
+const query = querybar.root.querySelector('input')
+
+const req = qs.get()
+if ('q' in req && req.q) {
+  query.value = req.q
+  querybar.root.querySelector('.mdc-floating-label').classList.add('mdc-floating-label--float-above')
+}
 
 sniper.addEventListener('click', async e => {
   const scopes = []
   const chips = document.querySelectorAll('.mdc-chip--selected')
-  const query = querybar.root.querySelector('input').value
   for (const chip of chips) {
     const text = chip.querySelector('.mdc-chip__text').innerHTML
     const words = text.toLowerCase().split(' ')
     const scope = words.join('_')
     scopes.push(scope)
   }
-  const response = await fetch(`/api/search?q=${query}${scopes.length ? '&scopes=' + scopes.join(',') : ''}`)
+  const response = await fetch(`/api/search?q=${query.value}${scopes.length ? '&scopes=' + scopes.join(',') : ''}`)
   const data = await response.json()
   if (data.error) return
   const cards = document.querySelector('.search-cards')

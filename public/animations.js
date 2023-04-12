@@ -5,7 +5,7 @@ function animate() {
 function transition() {
   const nodes = document.querySelectorAll('.hidden, .offset')
   const hr = document.querySelector('hr')
-  const callouts = document.querySelectorAll('.callout')
+  const smalls = document.querySelectorAll('.small')
 
   setTimeout(() => {
     for (const node of nodes) {
@@ -14,9 +14,9 @@ function transition() {
     }
   }, 500);
   setTimeout(() => {
-    for (const callout of callouts) {
-      callout.classList.remove('hidden')
-      callout.classList.remove('small')
+    for (const small of smalls) {
+      small.classList.remove('hidden')
+      small.classList.remove('small')
     }
   }, 500);
   setTimeout(() => {

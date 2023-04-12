@@ -1,6 +1,6 @@
 :root {
-  --mdc-theme-primary: #2C6FEF;
-  --mdc-theme-primary-transparent: #2C6FEF40;
+  --mdc-theme-primary: #2c6fef;
+  --mdc-theme-primary-transparent: #2c6fef40;
   --mdc-theme-secondary: #e1503c;
   --mdc-theme-background: #fff;
   --mdc-theme-surface: #fff;
@@ -12,6 +12,7 @@
   --mdc-warning: #eea71f20;
   --mdc-theme-text-primary-on-background: #22222240;
   --mdc-typography-font-family: 'Plus Jakarta Sans';
+  --mdc-checkbox-checked-color: var(--mdc-theme-primary);
 }
 
 body {
@@ -155,9 +156,17 @@ img.emoji {
   list-style-type: '-   ';
 }
 
-.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
-  background-color: var(--mdc-theme-primary);
-  border-color: var(--mdc-theme-primary);
+.mdc-data-table {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.mdc-data-table__row {
+  transition: background-color 0.1s linear;
+}
+
+.mdc-data-table__row--selected {
+  background-color: var(--mdc-theme-primary-transparent);
 }
 
 button, .mdc-button {

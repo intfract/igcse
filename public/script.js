@@ -79,6 +79,7 @@ const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
 const searchTopic = document.querySelector('#search-topic')
 const searchCourse = document.querySelector('#search-course')
 const searchbtn = document.querySelector('.search + button')
+const tables = document.querySelectorAll('.mdc-data-table')
 
 const list = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
@@ -96,6 +97,10 @@ for (const emojiable of emojiables) {
 
 for (const button of buttons) {
   component('ripple', button)
+}
+
+for (const table of tables) {
+  component('data-table', table)
 }
 
 navigate(pathname, current)
