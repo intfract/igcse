@@ -14,9 +14,9 @@ A **FORK** and **STAR** shows that you support this project!
 
 The license is a modified GNU license. You must: 
 - include a copy of the `LICENSE` file in your own version
-- release your product under the same **open source** license
+- release your product under the same **open-source** license
 
-Essentially, you can do anything you want to the code as long as your version is open source and you credit the author. The whole point is to keep things free and transparent. 
+Essentially, you can do anything you want to the code as long as your version is open-source and you credit the author. The whole point is to keep things free and transparent. 
 
 ## API
 
@@ -122,11 +122,35 @@ Other parameters can be passed through inflict to dynamically set `src` and `hre
 <script src="#{ path + 'script.js' }#"></script>
 ```
 
-# Hosting
+## Features
+
+### Revision Notes
+
+Revision notes are under construction!
+
+### AI Marking
+
+This the rough idea for `text-davinci` marking.
+
+> Mark this student's answer. Your response should only include a JSON object with a "marks" field. The **bold** words in the "scheme" field mean that the student should not be awarded the mark if their answer does not contain the exact phrase in **bold**! 
+
+```json
+{ 
+  "answer": "aerobic respiration releases more energy than anaerobic respiration and produces no lactic acid", 
+  "scheme": [
+    "aerobic respiration releases more energy **per glucose molecule**", 
+    "no lactic acid is produced in aerobic respiration"
+  ]
+}
+```
+
+The expected result is a JSON object with a `marks` field of `1` after applying the IGCSE marking rules.
+
+## Hosting
 
 There are free hosting platforms like [render](https://render.com) and [cyclic](https://cyclic.sh)! Make sure to set environment variables before you deploy your app. 
 
-# Contributing
+## Contributing
 
 Contributors are welcome. The goal of this project is to produce a website like [Save My Exams](https://savemyexams.co.uk) but without ads and completely free. A few objectives are listed below. 
 - Quality Revision Notes 

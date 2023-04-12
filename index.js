@@ -42,7 +42,11 @@ app.get('/content/:subject', (req, res) => {
 })
 
 app.get('/courses/:subject/:topic', (req, res) => {
-  res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+  try {
+    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+  } catch (e) {
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../' })) // might need to change
+  }
 })
 
 app.get('/api', (req, res) => {
@@ -113,6 +117,19 @@ app.get('/api/search', (req, res) => {
 
 app.get('/search', (req, res) => {
   res.send(render(`views/search`, '', { title: 'Search Page', path: '../' }))
+})
+
+app.get('*', (req, res) => {
+  res.status(404)
+  if (req.accepts('html')) {
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../' }))
+    return
+  }
+  if (req.accepts('json')) {
+    res.json({ error: 'not found' })
+    return
+  }
+  res.type('txt').send('not found')
 })
 
 app.listen(port)
