@@ -12,7 +12,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "inflict": "^4.0.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "openai": "^3.2.1"
   },
   "repository": {
     "type": "git",

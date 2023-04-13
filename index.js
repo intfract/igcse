@@ -9,6 +9,7 @@ import express from 'express'
 import fetch from 'node-fetch'
 import bodyParser from 'body-parser'
 import fs from 'fs'
+import { ChatCompletionResponseMessageRoleEnum, Configuration, OpenAIApi} from 'openai'
 
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -25,7 +26,6 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 app.get('/', async (req, res) => {
-  const { params } = req
   res.send(render('views', '', { title: 'IGCSE', path: '' })) 
 })
 
@@ -51,7 +51,14 @@ app.get('/courses/:subject/:topic', (req, res) => {
 
 app.get('/api', (req, res) => {
   res.status(200).json({
-    search: '/api/search?q='
+    search: {
+      method: 'GET',
+      path: '/api/search?q=',
+    },
+    marking: {
+      method: 'POST',
+      path: '/api/marking',
+    },
   })
 })
 
@@ -113,6 +120,37 @@ app.get('/api/search', (req, res) => {
     }
   }
   res.status(200).json(result)
+})
+
+app.post('/api/marking', async (req, res) => {
+  const { prompt } = req.body
+  if (!prompt) return res.status(404).json({ error: 'invalid prompt' })
+  console.log(prompt)
+  const apiKey = process.env.openai
+  const configuration = new Configuration({
+    apiKey,
+  })
+  const openai = new OpenAIApi(configuration)
+  try {
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt,
+      temperature: 0,
+      max_tokens: 1024,
+    })
+    const completion = response.data.choices[0].text
+    console.log(completion)
+    return res.status(200).json({
+      prompt,
+      completion,
+    })
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.status, error.response.data)
+    } else {
+      console.error(`OpenAI Error: ${error.message}`)
+    }
+  }
 })
 
 app.get('/search', (req, res) => {
