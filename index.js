@@ -9,7 +9,7 @@ import express from 'express'
 import fetch from 'node-fetch'
 import bodyParser from 'body-parser'
 import fs from 'fs'
-import { ChatCompletionResponseMessageRoleEnum, Configuration, OpenAIApi} from 'openai'
+import { Configuration, OpenAIApi} from 'openai'
 
 import * as dotenv from 'dotenv'
 dotenv.config()
