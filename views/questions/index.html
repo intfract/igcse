@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  #{ include('$meta.html') }#
+  <title>#{ title }#</title>
+  #{ include('$lib.html') }#
+</head>
+<body>
+  #{ include('$appbar.html') }#
+  #{ include('$drawer.html') }#
+  <main class="mdc-top-app-bar--fixed-adjust">
+    <section>
+      <h1 class="hidden offset">Questions</h1>
+      <hr class="compressed">
+      <div class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-scroller">
+          <div class="mdc-tab-scroller__scroll-area">
+            <div class="mdc-tab-scroller__scroll-content">
+              <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                <span class="mdc-tab__content">
+                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">radio_button_checked</span>
+                  <span class="mdc-tab__text-label">Selective</span>
+                </span>
+                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                </span>
+                <span class="mdc-tab__ripple"></span>
+              </button>
+              <button class="mdc-tab" role="tab">
+                <span class="mdc-tab__content">
+                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">article</span>
+                  <span class="mdc-tab__text-label">Theory</span>
+                </span>
+                <span class="mdc-tab-indicator">
+                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                </span>
+                <span class="mdc-tab__ripple"></span>
+              </button>
+              <button class="mdc-tab" role="tab">
+                <span class="mdc-tab__content">
+                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">calculate</span>
+                  <span class="mdc-tab__text-label">Math</span>
+                </span>
+                <span class="mdc-tab-indicator">
+                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                </span>
+                <span class="mdc-tab__ripple"></span>
+              </button>
+              <button class="mdc-tab" role="tab">
+                <span class="mdc-tab__content">
+                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">drag_indicator</span>
+                  <span class="mdc-tab__text-label">Matching</span>
+                </span>
+                <span class="mdc-tab-indicator">
+                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                </span>
+                <span class="mdc-tab__ripple"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo">
+        <p class="hidden offset"></p>
+        <!-- dynamic interactive demo -->
+        <form>
+          <div class="mdc-form-field radio">
+            <div class="mdc-touch-target-wrapper">
+              <div class="mdc-radio mdc-radio--touch">
+                <input class="mdc-radio__native-control" type="radio" name="radios" checked>
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
+                </div>
+                <div class="mdc-radio__ripple"></div>
+              </div>
+            </div>
+            <label>Radio 1</label> 
+          </div>
+          <div class="mdc-form-field radio">
+            <div class="mdc-touch-target-wrapper">
+              <div class="mdc-radio mdc-radio--touch">
+                <input class="mdc-radio__native-control" type="radio" name="radios">
+                <div class="mdc-radio__background">
+                  <div class="mdc-radio__outer-circle"></div>
+                  <div class="mdc-radio__inner-circle"></div>
+                </div>
+                <div class="mdc-radio__ripple"></div>
+              </div>
+            </div>
+            <label>Radio 2</label>
+          </div>
+          <button class="mdc-button mdc-button--raised mdc-button--leading" id="sniper" type="submit" style="margin-top: 16px;">
+            <span class="mdc-button__ripple"></span>
+            <span class="mdc-button__label">Submit</span>
+            <span class="mdc-button__icon material-symbols-rounded">
+              arrow_forward
+            </span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  #{ include('$root.html') }#
+  <script src="../tabs.js"></script>
+</body>
+</html>
