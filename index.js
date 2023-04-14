@@ -29,24 +29,49 @@ app.get('/', async (req, res) => {
   res.send(render('views', '', { title: 'IGCSE', path: '' })) 
 })
 
-app.get('/content', (req, res) => {
-  res.send(render('views', 'content.html', {}))
-})
-
 app.get('/courses/:subject', (req, res) => {
-  res.send(render(`views/courses/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
-})
-
-app.get('/content/:subject', (req, res) => {
-  res.send(render(`views/courses/${req.params.subject}`, 'content.html', { relative: `courses/${req.params.subject}` }))
+  try {
+    res.send(render(`views/courses/${req.params.subject}`, '', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+  } catch (e) {
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }))
+  }
 })
 
 app.get('/courses/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../../', relative: `courses/${req.params.subject}` }))
   } catch (e) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../' })) // might need to change
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
   }
+})
+
+app.get('/content', (req, res) => {
+  res.send(render('views', 'content.html', {}))
+})
+
+app.get('/content/:subject', (req, res) => {
+  try {
+    res.send(render(`views/courses/${req.params.subject}`, 'content.html', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+  } catch (e) {
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }))
+  }
+})
+
+app.get('/questions', (req, res) => {
+  res.send(render(`views/questions`, '', { title: `IGCSE QUESTIONS`, path: '', relative: 'questions' }))
+})
+
+app.get('/questions/:subject', (req, res) => {
+  res.send(render(`views/questions/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../', relative: `questions/${req.params.subject}` }))
+})
+
+app.get('/questions/:subject/:topic', (req, res) => {
+  try {
+    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../../', relative: `questions/${req.params.subject}` }))
+  } catch (e) {
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
+  }
+
 })
 
 app.get('/api', (req, res) => {
