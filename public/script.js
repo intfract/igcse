@@ -74,6 +74,7 @@ const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
 const searchbar = component('text-field', document.querySelector('.mdc-top-app-bar .mdc-text-field'))
 const menu = component('menu', document.querySelector('.mdc-menu'))
+const progress = component('linear-progress', document.querySelector('.mdc-linear-progress'))
 
 const searchTopic = document.querySelector('#search-topic')
 const searchCourse = document.querySelector('#search-course')
@@ -137,6 +138,7 @@ for (const item of nav.children) {
     const chunks = pathname.split('/')
     chunks.shift()
     chunks[0] = ''
+    progress.open()
     const response = await fetch(('/content' + chunks.join('/')).replace('//', '/'))
     const page = await response.text()
     main.innerHTML = page

@@ -196,7 +196,12 @@ img.emoji {
   list-style-type: '-   ';
 }
 
+.mdc-linear-progress--closed {
+  display: none;
+}
+
 .mdc-data-table {
+  width: 100%;
   opacity: 1;
   transition: opacity 0.3s ease-out;
 }
