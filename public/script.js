@@ -167,6 +167,8 @@ searchbar.root.addEventListener('input', async e => {
       searchCourse.appendChild(searchItem(k, v))
     }
   }
+  component('list', searchTopic).listElements.map(x => component('ripple', x))
+  component('list', searchCourse).listElements.map(x => component('ripple', x))
 })
 
 searchbtn.addEventListener('click', e => {
