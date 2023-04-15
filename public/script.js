@@ -28,7 +28,7 @@ function component(name, element) {
 
 function navigate(pathname, current) {
   transition()
-  for (const item of list.children) {
+  for (const item of nav.children) {
     const subject = item.querySelector('.mdc-list-item__text').innerHTML
     if (pathname.startsWith('/courses/')) {
       if (subject.toLowerCase() === current.toLowerCase()) {
@@ -70,26 +70,29 @@ function searchItem(k, v) {
   return result
 }
 
-const buttons = document.querySelectorAll('.mdc-button')
-const title = document.querySelector('title')
 const drawer = component('drawer', document.querySelector('.mdc-drawer'))
 const appbar = component('top-app-bar', document.querySelector('.mdc-top-app-bar'))
 const searchbar = component('text-field', document.querySelector('.mdc-top-app-bar .mdc-text-field'))
-const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
+const menu = component('menu', document.querySelector('.mdc-menu'))
+
 const searchTopic = document.querySelector('#search-topic')
 const searchCourse = document.querySelector('#search-course')
-const searchbtn = document.querySelector('.search + button')
-const tables = document.querySelectorAll('.mdc-data-table')
 
-const list = document.querySelector('.mdc-drawer .mdc-list')
+const title = document.querySelector('title')
+const input = document.querySelector('.mdc-top-app-bar .mdc-text-field__input')
+const searchbtn = document.querySelector('.mdc-top-app-bar button[aria-label="Search"]')
+const morebtn = document.querySelector('.mdc-top-app-bar button[aria-label="Options"]')
+
+const buttons = document.querySelectorAll('.mdc-button')
+const tables = document.querySelectorAll('.mdc-data-table')
+const lists = document.querySelectorAll('.mdc-list')
+const emojiables = document.querySelectorAll('p, li, .callout')
+
+const nav = document.querySelector('.mdc-drawer .mdc-list')
 const main = document.querySelector('main')
 
 const { pathname } = window.location
 const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
-
-const emojiables = document.querySelectorAll('p, li, .callout')
-
-var delayTimer
 
 for (const emojiable of emojiables) {
   twemoji.parse(emojiable)
@@ -103,13 +106,17 @@ for (const table of tables) {
   component('data-table', table)
 }
 
+for (const list of lists) {
+  component('list', list).listElements.map(x => component('ripple', x))
+}
+
 navigate(pathname, current)
 
-list.addEventListener('click', (event) => {
+nav.addEventListener('click', (event) => {
   drawer.open = false;
 })
 
-for (const item of list.children) {
+for (const item of nav.children) {
   const subject = item.querySelector('.mdc-list-item__text').innerHTML
   item.addEventListener('click', async e => {
     e.preventDefault()
@@ -160,8 +167,14 @@ searchbar.root.addEventListener('input', async e => {
       searchCourse.appendChild(searchItem(k, v))
     }
   }
+  component('list', searchTopic).listElements.map(x => component('ripple', x))
+  component('list', searchCourse).listElements.map(x => component('ripple', x))
 })
 
 searchbtn.addEventListener('click', e => {
   window.open(`/search?q=${input.value}`)
+})
+
+morebtn.addEventListener('click', e => {
+  menu.open = true
 })

@@ -1,7 +1,7 @@
 :root {
   --mdc-theme-primary: #2c6fef;
   --mdc-theme-primary-transparent: #2c6fef40;
-  --mdc-theme-secondary: #e1503c;
+  --mdc-theme-secondary: var(--mdc-theme-primary);
   --mdc-theme-background: #fff;
   --mdc-theme-surface: #fff;
   --mdc-theme-error: #b00020;
@@ -10,7 +10,7 @@
   --mdc-theme-on-surface: #000;
   --mdc-theme-callout: #eee;
   --mdc-warning: #eea71f20;
-  --mdc-theme-text-primary-on-background: #22222240;
+  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.24);
   --mdc-typography-font-family: 'Plus Jakarta Sans';
   --mdc-checkbox-checked-color: var(--mdc-theme-primary);
 }
@@ -76,7 +76,7 @@ h3 {
 
 hr {
   width: 100%;
-  border: 1px var(--mdc-theme-text-primary-on-background) solid;
+  border: 1px var(--mdc-theme-text-hint-on-light) solid;
   box-sizing: border-box;
   transition: width 0.3s ease-out;
 }
@@ -233,12 +233,23 @@ button, .mdc-button {
   margin-right: 16px;
 }
 
+form {
+  margin: 16px 0;
+  padding: 16px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid var(--mdc-theme-callout);
+  overflow: hidden;
+}
+
 .mdc-card {
   margin: 16px 0;
   width: 320px;
   max-height: 480px;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 0px var(--mdc-theme-text-primary-on-background);
+  box-shadow: none;
+  border: 1px solid var(--mdc-theme-callout);
   overflow: hidden;
 }
 
@@ -281,12 +292,16 @@ button, .mdc-button {
   margin-left: 8px;
 }
 
+.mdc-menu {
+  min-width: 128px;
+}
+
 .mdc-top-app-bar .mdc-text-field--filled {
   width: 320px;
 }
 
 .mdc-top-app-bar .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: var(--mdc-theme-text-primary-on-background);
+  background-color: var(--mdc-theme-text-hint-on-light);
 }
 
 .mdc-top-app-bar .mdc-text-field--filled .mdc-text-field__input {
@@ -302,6 +317,7 @@ button, .mdc-button {
 }
 
 .mdc-list {
+  padding: 0;
   color: var(--mdc-theme-on-surface);
 }
 
@@ -322,7 +338,7 @@ button, .mdc-button {
   margin-top: 64px;
   background-color: var(--mdc-theme-background);
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 0px var(--mdc-theme-text-primary-on-background);
+  box-shadow: 0px 0px 4px 0px var(--mdc-theme-text-hint-on-light);
   overflow: hidden;
   transition: height 0.3s ease-out;
 }
@@ -332,7 +348,7 @@ button, .mdc-button {
 }
 
 .mdc-list-group__subheader {
-  margin: 16px 16px 0;
+  margin: 16px;
 }
 
 .mdc-chip {
@@ -356,6 +372,13 @@ button, .mdc-button {
 .mdc-chip--selected .mdc-chip__checkmark-path {
   stroke-dashoffset: 0;
   stroke: var(--mdc-theme-primary);
+}
+
+.mdc-form-field.radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
 }
 
 .filter {

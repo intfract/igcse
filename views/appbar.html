@@ -38,10 +38,28 @@
         <div class="mdc-icon-button__ripple"></div>
         search
       </button>
-      <button class="material-symbols-rounded mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">
-        <div class="mdc-icon-button__ripple"></div>
-        more_vert
-      </button>
+      <div class="more">
+        <button class="material-symbols-rounded mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">
+          <div class="mdc-icon-button__ripple"></div>
+          more_vert
+        </button>
+        <div class="mdc-menu-surface--anchor">
+          <div class="mdc-menu mdc-menu-surface">
+            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="material-symbols-rounded mdc-list-item__graphic">question_mark</span>
+                <span class="mdc-list-item__text" onclick="window.open('/questions')">Questions</span>
+              </li>
+              <li class="mdc-list-item" role="menuitem">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="material-symbols-rounded mdc-list-item__graphic">extension</span>
+                <span class="mdc-list-item__text" onclick="window.open('/puzzles')">Puzzles</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </header>
