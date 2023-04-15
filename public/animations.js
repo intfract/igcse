@@ -12,6 +12,7 @@ function transition() {
       node.classList.remove('hidden')
       node.classList.remove('offset')
     }
+    progress.close()
   }, 500);
   setTimeout(() => {
     for (const small of smalls) {
