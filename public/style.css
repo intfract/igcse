@@ -10,6 +10,7 @@
   --mdc-theme-on-surface: #000;
   --mdc-theme-callout: #eee;
   --mdc-warning: #eea71f20;
+  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.24);
   --mdc-typography-font-family: 'Plus Jakarta Sans';
   --mdc-checkbox-checked-color: var(--mdc-theme-primary);
 }
@@ -291,6 +292,10 @@ form {
   margin-left: 8px;
 }
 
+.mdc-menu {
+  min-width: 128px;
+}
+
 .mdc-top-app-bar .mdc-text-field--filled {
   width: 320px;
 }
@@ -312,6 +317,7 @@ form {
 }
 
 .mdc-list {
+  padding: 0;
   color: var(--mdc-theme-on-surface);
 }
 
@@ -342,7 +348,7 @@ form {
 }
 
 .mdc-list-group__subheader {
-  margin: 16px 16px 0;
+  margin: 16px;
 }
 
 .mdc-chip {
