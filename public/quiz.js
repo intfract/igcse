@@ -16,7 +16,13 @@ function update(ctx, index) {
   const item = ctx[index]
   intro.innerHTML = item.intro
   task.innerHTML = item.question
-  if (item.image) img.setAttribute('src', item.image)
+  if (item.image) {
+    img.setAttribute('src', `../../../images/${item.image}`)
+    img.removeAttribute('style')
+  } else {
+    img.setAttribute('style', 'display: none;')
+  }
+  dialogContent.innerHTML = ctx[index].explanation.replaceAll('\n', '<br>')
   for (let i = 0; i < ctx[index].options.length; i++) {
     const option = ctx[index].options[i]
     labels[i].innerHTML = option
@@ -50,6 +56,9 @@ const labels = document.querySelectorAll('.radio label')
 const intro = document.querySelector('#intro')
 const task = document.querySelector('#task')
 const img = document.querySelector('form img')
+const dialog = component('dialog', document.querySelector('.mdc-dialog'))
+const dialogTitle = document.querySelector('#dialog-title')
+const dialogContent = document.querySelector('#dialog-content')
 
 const scheme = {
   selective: [],
@@ -64,10 +73,11 @@ form.addEventListener('submit', e => {
     for (let i = 0; i < form.radios.length; i++) {
       const radio = form.radios[i];
       if (radio.checked) {
+        dialog.open()
         if (i === scheme.selective[currentTab]) {
-
+          dialogTitle.innerHTML = 'Correct!'
         } else {
-          
+          dialogTitle.innerHTML = 'Incorrect!'
         }
       }
     }

@@ -11,7 +11,8 @@
         "The cytoplasm contains haemoglobin.",
         "The flat structure makes it easier to be carried through arteries."
       ],
-      "scheme": 2
+      "scheme": 2,
+      "explanation": "The correct answer is: The cytoplasm contains haemoglobin. \nBlood cells carry oxygen to different parts of the body. Oxygen is required for aerobic respiration in organs. Red blood cells can transport oxygen around the body because oxygen binds to haemoglobin. These cells do not have nuclei to allow room for haemoglobin. \nRed blood cells have a biconcave shape to maximise the efficiency oxygen absorption. A biconcave shape increases the surface area in relation to volume."
     },
     {
       "intro": "This is placeholder text.",
@@ -24,7 +25,8 @@
         "3",
         "4"
       ],
-      "scheme": 2
+      "scheme": 2,
+      "explanation": ""
     }
   ],
   "theory": []

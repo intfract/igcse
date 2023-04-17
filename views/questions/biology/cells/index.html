@@ -8,6 +8,31 @@
 <body>
   #{ include('$appbar.html') }#
   #{ include('$drawer.html') }#
+  <div class="mdc-dialog">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-content">
+        <h2 class="mdc-dialog__title" id="dialog-title"></h2>
+        <div class="mdc-dialog__content" id="dialog-content">
+          Explanation...
+        </div>
+        <div class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Cancel</span>
+          </button>
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Discard</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
       <h1 class="hidden offset">Cells</h1>
