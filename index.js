@@ -178,6 +178,19 @@ app.post('/api/marking', async (req, res) => {
   }
 })
 
+app.get('/api/questions', (req, res) => {
+  const { subject, topic } = req.query
+  const subjects = fs.readdirSync('views/questions')
+  if (!(subject && subjects.includes(subject))) return res.status(404).json({ error: 'invalid subject' })
+  const topics = fs.readdirSync(`views/questions/${subject}`)
+  if (topic && topics.includes(topic)) {
+    const quiz = JSON.parse(fs.readFileSync(`views/questions/${subject}/${topic}/quiz.json`, 'utf-8'))
+    res.status(200).json(quiz)
+  } else {
+
+  }
+})
+
 app.get('/search', (req, res) => {
   res.send(render(`views/search`, '', { title: 'Search Page', path: '../' }))
 })

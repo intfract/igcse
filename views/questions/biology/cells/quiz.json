@@ -1,0 +1,31 @@
+{
+  "selective": [
+    {
+      "intro": "The diagram shows a section through a red blood cell.",
+      "image": "rbc.png",
+      "question": "How is the structure of the cell related to its function?",
+      "difficulty": 3,
+      "options": [
+        "The cell has no nucleus to use up oxygen.",
+        "The cell membrane has a small surface area in relation to volume.",
+        "The cytoplasm contains haemoglobin.",
+        "The flat structure makes it easier to be carried through arteries."
+      ],
+      "scheme": 2
+    },
+    {
+      "intro": "This is placeholder text.",
+      "image": "",
+      "question": "?",
+      "difficulty": 3,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "scheme": 2
+    }
+  ],
+  "theory": []
+}
