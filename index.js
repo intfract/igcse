@@ -67,7 +67,7 @@ app.get('/questions/:subject', (req, res) => {
 
 app.get('/questions/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../../', relative: `questions/${req.params.subject}` }))
+    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUIZ`, path: '../../../', relative: `questions/${req.params.subject}` }))
   } catch (e) {
     res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
   }

@@ -10,64 +10,32 @@
   #{ include('$drawer.html') }#
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
-      <h1 class="hidden offset">Questions</h1>
+      <h1 class="hidden offset">Cells</h1>
       <hr class="compressed">
       <div class="mdc-tab-bar" role="tablist">
         <div class="mdc-tab-scroller">
           <div class="mdc-tab-scroller__scroll-area">
             <div class="mdc-tab-scroller__scroll-content">
-              <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+              <!-- <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
                 <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">radio_button_checked</span>
-                  <span class="mdc-tab__text-label">Selective</span>
+                  <span class="mdc-tab__text-label">1</span>
                 </span>
                 <span class="mdc-tab-indicator mdc-tab-indicator--active">
                   <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                 </span>
                 <span class="mdc-tab__ripple"></span>
-              </button>
-              <button class="mdc-tab" role="tab">
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">article</span>
-                  <span class="mdc-tab__text-label">Theory</span>
-                </span>
-                <span class="mdc-tab-indicator">
-                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                </span>
-                <span class="mdc-tab__ripple"></span>
-              </button>
-              <button class="mdc-tab" role="tab">
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">calculate</span>
-                  <span class="mdc-tab__text-label">Math</span>
-                </span>
-                <span class="mdc-tab-indicator">
-                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                </span>
-                <span class="mdc-tab__ripple"></span>
-              </button>
-              <button class="mdc-tab" role="tab">
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-symbols-rounded" aria-hidden="true">drag_indicator</span>
-                  <span class="mdc-tab__text-label">Matching</span>
-                </span>
-                <span class="mdc-tab-indicator">
-                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                </span>
-                <span class="mdc-tab__ripple"></span>
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
       </div>
       <div class="demo">
         <p class="hidden offset"></p>
-        <!-- dynamic interactive demo -->
         <form>
           <div class="mdc-form-field radio">
             <div class="mdc-touch-target-wrapper">
               <div class="mdc-radio mdc-radio--touch">
-                <input class="mdc-radio__native-control" type="radio" name="radios" checked>
+                <input class="mdc-radio__native-control" type="radio" name="radios">
                 <div class="mdc-radio__background">
                   <div class="mdc-radio__outer-circle"></div>
                   <div class="mdc-radio__inner-circle"></div>
@@ -125,14 +93,9 @@
           </button>
         </form>
       </div>
-      <ul class="hidden offset">
-        <li><a href="/#{ relative }#/biology">Biology</a></li>
-        <li><a href="/#{ relative }#/chemistry">Chemistry</a></li>
-        <li><a href="/#{ relative }#/physics">Physics</a></li>
-      </ul>
     </section>
   </main>
   #{ include('$root.html') }#
-  <script src="../tabs.js"></script>
+  <script src="#{ path }#quiz.js"></script>
 </body>
 </html>
