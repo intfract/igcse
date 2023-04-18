@@ -17,16 +17,16 @@
         aria-describedby="dialog-content">
         <h2 class="mdc-dialog__title" id="dialog-title"></h2>
         <div class="mdc-dialog__content" id="dialog-content">
-          Explanation...
+          Loading...
         </div>
         <div class="mdc-dialog__actions">
-          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="report">
             <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Cancel</span>
+            <span class="mdc-button__label">Report Mistake</span>
           </button>
-          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+          <button type="button" class="mdc-button mdc-dialog__button mdc-button--raised" data-mdc-dialog-action="close">
             <div class="mdc-button__ripple"></div>
-            <span class="mdc-button__label">Discard</span>
+            <span class="mdc-button__label">Close</span>
           </button>
         </div>
       </div>
@@ -38,90 +38,9 @@
       <h1 class="hidden offset">Cells</h1>
       <hr class="compressed">
       <h2 class="hidden offset">Selective</h2>
-      <div class="mdc-tab-bar" role="tablist">
-        <div class="mdc-tab-scroller">
-          <div class="mdc-tab-scroller__scroll-area">
-            <div class="mdc-tab-scroller__scroll-content">
-              <!-- <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__text-label">1</span>
-                </span>
-                <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                </span>
-                <span class="mdc-tab__ripple"></span>
-              </button> -->
-            </div>
-          </div>
-        </div>
+      #{ include('$questions/tablist.html') }#
       </div>
-      <div class="quiz">
-        <form>
-          <h3 class="hidden offset">Cells</h3>
-          <p class="hidden offset" id="intro">Loading...</p>
-          <img src="" alt="" style="display: none;">
-          <p class="hidden offset" id="task">Loading...</p>
-          <div class="mdc-form-field radio">
-            <div class="mdc-touch-target-wrapper">
-              <div class="mdc-radio mdc-radio--touch">
-                <input class="mdc-radio__native-control" type="radio" name="radios">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-            </div>
-            <label>First Option</label> 
-          </div>
-          <div class="mdc-form-field radio">
-            <div class="mdc-touch-target-wrapper">
-              <div class="mdc-radio mdc-radio--touch">
-                <input class="mdc-radio__native-control" type="radio" name="radios">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-            </div>
-            <label>Second Option</label>
-          </div>
-          <div class="mdc-form-field radio">
-            <div class="mdc-touch-target-wrapper">
-              <div class="mdc-radio mdc-radio--touch">
-                <input class="mdc-radio__native-control" type="radio" name="radios">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-            </div>
-            <label>Third Option</label>
-          </div>
-          <div class="mdc-form-field radio">
-            <div class="mdc-touch-target-wrapper">
-              <div class="mdc-radio mdc-radio--touch">
-                <input class="mdc-radio__native-control" type="radio" name="radios">
-                <div class="mdc-radio__background">
-                  <div class="mdc-radio__outer-circle"></div>
-                  <div class="mdc-radio__inner-circle"></div>
-                </div>
-                <div class="mdc-radio__ripple"></div>
-              </div>
-            </div>
-            <label>Fourth Option</label>
-          </div>
-          <button class="mdc-button mdc-button--raised mdc-button--leading" id="sniper" type="submit" style="margin-top: 16px;">
-            <span class="mdc-button__ripple"></span>
-            <span class="mdc-button__label">Submit</span>
-            <span class="mdc-button__icon material-symbols-rounded">
-              arrow_forward
-            </span>
-          </button>
-        </form>
-      </div>
+      #{ include('$questions/quiz.html') }#
     </section>
   </main>
   #{ include('$root.html') }#

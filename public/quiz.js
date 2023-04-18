@@ -22,6 +22,15 @@ function update(ctx, index) {
   } else {
     img.setAttribute('style', 'display: none;')
   }
+  if (item.statements.length) {
+    ol.innerHTML = ''
+    for (const statement of item.statements) {
+      ol.innerHTML += `<li>${statement}</li>`
+    }
+    ol.removeAttribute('style')
+  } else {
+    ol.setAttribute('style', 'display: none;')
+  }
   dialogContent.innerHTML = ctx[index].explanation.replaceAll('\n', '<br>')
   for (let i = 0; i < ctx[index].options.length; i++) {
     const option = ctx[index].options[i]
@@ -45,8 +54,12 @@ async function fill() {
   tabbar.activateTab(0)
   tabbar.root.addEventListener('MDCTabBar:activated', e => {
     currentTab = e.detail.index
+    for (const radio of form.radios) {
+      radio.checked = false
+    }
     update(selective, currentTab)
   })
+  progress.close()
 }
 
 const scroller = document.querySelector('.mdc-tab-scroller__scroll-content')
@@ -56,6 +69,7 @@ const labels = document.querySelectorAll('.radio label')
 const intro = document.querySelector('#intro')
 const task = document.querySelector('#task')
 const img = document.querySelector('form img')
+const ol = document.querySelector('form ol')
 const dialog = component('dialog', document.querySelector('.mdc-dialog'))
 const dialogTitle = document.querySelector('#dialog-title')
 const dialogContent = document.querySelector('#dialog-content')
@@ -71,7 +85,7 @@ form.addEventListener('submit', e => {
   e.preventDefault()
   if (form.radios.value) {
     for (let i = 0; i < form.radios.length; i++) {
-      const radio = form.radios[i];
+      const radio = form.radios[i]
       if (radio.checked) {
         dialog.open()
         if (i === scheme.selective[currentTab]) {
