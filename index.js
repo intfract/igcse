@@ -182,12 +182,17 @@ app.get('/api/questions', (req, res) => {
   const { subject, topic } = req.query
   const subjects = fs.readdirSync('views/questions')
   if (!(subject && subjects.includes(subject))) return res.status(404).json({ error: 'invalid subject' })
-  const topics = fs.readdirSync(`views/questions/${subject}`)
+  const topics = fs.readdirSync(`views/questions/${subject}`).filter(file => !file.endsWith('.html'))
   if (topic && topics.includes(topic)) {
     const quiz = JSON.parse(fs.readFileSync(`views/questions/${subject}/${topic}/quiz.json`, 'utf-8'))
     res.status(200).json(quiz)
   } else {
-
+    const result = {}
+    for (const t of topics) {
+      const quiz = JSON.parse(fs.readFileSync(`views/questions/${subject}/${t}/quiz.json`, 'utf-8'))
+      result[t] = quiz
+    }
+    res.status(200).json(result)
   }
 })
 
