@@ -240,12 +240,21 @@ button, .mdc-button {
 
 form {
   margin: 16px 0;
-  padding: 16px;
+  padding: 32px;
   width: 100%;
   border-radius: 4px;
   box-shadow: none;
+  box-sizing: border-box;
   border: 1px solid var(--mdc-theme-callout);
   overflow: hidden;
+}
+
+form h3 {
+  margin-block: 0;
+}
+
+form img {
+  width: 50%;
 }
 
 .mdc-card {

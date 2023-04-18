@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  #{ include('$meta.html') }#
+  <title>#{ title }#</title>
+  #{ include('$lib.html') }#
+</head>
+<body>
+  #{ include('$appbar.html') }#
+  #{ include('$drawer.html') }#
+  <div class="mdc-dialog">
+    <div class="mdc-dialog__container">
+      <div class="mdc-dialog__surface"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-content">
+        <h2 class="mdc-dialog__title" id="dialog-title"></h2>
+        <div class="mdc-dialog__content" id="dialog-content">
+          Loading...
+        </div>
+        <div class="mdc-dialog__actions">
+          <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="report">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Report Mistake</span>
+          </button>
+          <button type="button" class="mdc-button mdc-dialog__button mdc-button--raised" data-mdc-dialog-action="close">
+            <div class="mdc-button__ripple"></div>
+            <span class="mdc-button__label">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mdc-dialog__scrim"></div>
+  </div>
+  <main class="mdc-top-app-bar--fixed-adjust">
+    <section>
+      <h1 class="hidden offset">Cells</h1>
+      <hr class="compressed">
+      <h2 class="hidden offset">Selective</h2>
+      #{ include('$questions/tablist.html') }#
+      </div>
+      #{ include('$questions/quiz.html') }#
+    </section>
+  </main>
+  #{ include('$root.html') }#
+  <script src="#{ path }#quiz.js"></script>
+</body>
+</html>

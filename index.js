@@ -67,7 +67,7 @@ app.get('/questions/:subject', (req, res) => {
 
 app.get('/questions/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../../', relative: `questions/${req.params.subject}` }))
+    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUIZ`, path: '../../../', relative: `questions/${req.params.subject}` }))
   } catch (e) {
     res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
   }
@@ -175,6 +175,19 @@ app.post('/api/marking', async (req, res) => {
     } else {
       console.error(`OpenAI Error: ${error.message}`)
     }
+  }
+})
+
+app.get('/api/questions', (req, res) => {
+  const { subject, topic } = req.query
+  const subjects = fs.readdirSync('views/questions')
+  if (!(subject && subjects.includes(subject))) return res.status(404).json({ error: 'invalid subject' })
+  const topics = fs.readdirSync(`views/questions/${subject}`)
+  if (topic && topics.includes(topic)) {
+    const quiz = JSON.parse(fs.readFileSync(`views/questions/${subject}/${topic}/quiz.json`, 'utf-8'))
+    res.status(200).json(quiz)
+  } else {
+
   }
 })
 

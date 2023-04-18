@@ -1,13 +1,9 @@
-const tabs = document.querySelectorAll('.mdc-tab-bar')
+const tabbar = component('tab-bar', document.querySelector('.mdc-tab-bar'))
 const radios = document.querySelectorAll('.mdc-radio')
 const formFields = document.querySelectorAll('.mdc-form-field')
 const form = document.querySelector('form')
 
 const radioMDC = []
-
-for (const tab of tabs) {
-  component('tab-bar', tab)
-}
 
 for (const radio of radios) {
   radioMDC.push(component('radio', radio))
@@ -49,10 +45,8 @@ if (window.location.pathname === '/questions') {
   ]
   const p = document.querySelector('.demo p')
   p.innerHTML = pages[0].text
-  for (const tab of tabs) {
-    tab.addEventListener('MDCTabBar:activated', e => {
-      const { index } = e.detail
-      p.innerHTML = pages[index].text
-    })
-  }
+  tabbar.root.addEventListener('MDCTabBar:activated', e => {
+    const { index } = e.detail
+    p.innerHTML = pages[index].text
+  })
 }

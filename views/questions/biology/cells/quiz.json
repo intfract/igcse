@@ -1,0 +1,50 @@
+{
+  "selective": [
+    {
+      "intro": "The diagram shows a section through a red blood cell.",
+      "statements": [],
+      "image": "rbc.png",
+      "question": "How is the structure of the cell related to its function?",
+      "difficulty": 3,
+      "options": [
+        "The cell has no nucleus to use up oxygen.",
+        "The cell membrane has a small surface area in relation to volume.",
+        "The cytoplasm contains haemoglobin.",
+        "The flat structure makes it easier to be carried through arteries."
+      ],
+      "scheme": 2,
+      "explanation": "The correct answer is: The cytoplasm contains haemoglobin. \nBlood cells carry oxygen to different parts of the body. Oxygen is required for aerobic respiration in organs. Red blood cells can transport oxygen around the body because oxygen binds to haemoglobin. These cells do not have nuclei to allow room for haemoglobin. \nRed blood cells have a biconcave shape to maximise the efficiency oxygen absorption. A biconcave shape increases the surface area in relation to volume."
+    },
+    {
+      "intro": "The salivary glands contain cells which are responsible for producing salivary amylase, a digestive enzyme.",
+      "statements": [],
+      "image": "",
+      "question": "Which organelles would be present in large numbers in cells of the salivary glands?",
+      "difficulty": 1,
+      "options": [
+        "mitochondria and nuclei",
+        "nuclei and ribosomes",
+        "mitochondria and vacuoles",
+        "mitochondria and ribosomes"
+      ],
+      "scheme": 3,
+      "explanation": "The correct answer is: mitochondria and ribosomes. \nEnzymes are proteins and ribosomes are responsible for making proteins. This means that the salivary glands need a large number of ribosomes to produce salivary amylase. Mitochondria release energy through aerobic respiration. A lot of energy is required to manufacture proteins. \nMost cells only have one nucleus. Vacuoles are rarely seen in animal cells and plant cells typically only have a single vacuole."
+    },
+    {
+      "intro": "A list of subcellular structures is given below.",
+      "statements": ["nucleus", "ribosome", "vacuole", "chloroplast"],
+      "image": "",
+      "question": "A plant cell is observed under a light microscope. Which of the above structures would always be visible in a plant cell?",
+      "difficulty": 1,
+      "options": [
+        "1, 2 & 4",
+        "1, 3 & 4",
+        "1 & 3 only",
+        "1 & 4 only"
+      ],
+      "scheme": 2,
+      "explanation": "The correct answer is: nucleus and vacuole. \nThe nucleus and vacuole are the largest structures of the cell and can be easily seen under a light microscope. \nRibosomes are too small and require an electron microscope for viewing. \nChloroplasts are found in cells that can phtotosynthesise. Root hair cells do not have chloroplasts."
+    }
+  ],
+  "theory": []
+}
