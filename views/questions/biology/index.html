@@ -8,6 +8,7 @@
 <body>
   #{ include('$appbar.html') }#
   #{ include('$drawer.html') }#
+  #{ include('$questions/dialog.html') }#
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
       <h1 class="hidden offset">Biology</h1>
@@ -57,9 +58,19 @@
           </table>
         </div>
       </div>
+      <button class="mdc-button mdc-button--raised mdc-button--leading" style="width: 100%; margin: 16px 0;">
+        <span class="mdc-button__ripple"></span>
+        <span class="mdc-button__icon material-symbols-rounded">
+          build
+        </span>
+        <span class="mdc-button__label">Build Quiz</span>
+      </button>
+      #{ include('$questions/tablist.html') }#
+      #{ include('$questions/quiz.html') }#
     </section>
   </main>
   #{ include('$root.html') }#
-  <script src="/#{ path }#builder.js"></script>
+  <script src="#{ path }#questions.js"></script>
+  <script src="#{ path }#builder.js"></script>
 </body>
 </html>
