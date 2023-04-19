@@ -1,0 +1,56 @@
+<section>
+  <h1 class="hidden offset">Data Transmission</h1>
+  <hr class="compressed">
+  <h2 class="hidden offset">Data Packets</h2>
+  <p class="hidden offset">TCP stands for Transmission Control Protocol and allows programs and computers to exchange information over a network. Information is broken down into <strong>packets</strong> before transmission because smaller chunks of data are easier and quicker to route than large chunks of data.</p>
+  <p class="hidden offset">Data transmitted over the internet can include any media such as text, images, audio, video, markup, or a combination of theses.</p>
+  <h3 class="hidden offset">Packet Structure</h3>
+  <p class="hidden offset">The information stored in a data packet is called the <strong>payload</strong>.</p>
+  <p class="hidden offset">Like any letter, email, or parcel, packets have 3 main components.</p>
+  <ul class="hidden offset">
+    <li>From: <strong>Source IP Address</strong></li>
+    <li>To: <strong>Destination IP Address</strong></li>
+    <li>Content: <strong>Payload</strong></li>
+  </ul>
+  <p class="hidden offset">Packets are split into 3 parts.</p>
+  <ul class="hidden offset">
+    <li>Header</li>
+    <li>Payload</li>
+    <li>Trailer</li>
+  </ul>
+  <p class="hidden offset">The header contains metadata about the packet and adds context to the payload.</p>
+  <ul class="hidden offset">
+    <li><strong>Source IP</strong></li>
+    <li><strong>Destination IP</strong></li>
+    <li><strong>Packet Number</strong></li>
+  </ul>
+  <h3 class="hidden offset">Packet Switching</h3>
+  <p class="hidden offset">A router controls the route a data packet takes. Data packets usually take the most optimal route (path). Packets may arrive out of order or through different routes. This means the packets need to be reordered once the last packet arrives. The process of transmitting data over the internet is called <strong>packet switching</strong></p>
+  <ul class="hidden offset">
+    <li>Routers know which nearby router is closer to the destination device</li>
+    <li>Routers can send packets from the same file though different routes to avoid <strong>data traffic</strong></li>
+    <li>Packets may arrive out of order and the <strong>packet number</strong> helps the receiving device to reorder the data</li>
+    <li>The receiver can send a <strong>resend request</strong> if a packet is missing</li>
+  </ul>
+  <p class="hidden offset">Packet switching has many advantages.</p>
+  <ul class="hidden offset">
+    <li>Interference and corruption are minimal since individual packets can be resent instead of the whole file</li>
+    <li>Resending only corrupted packets can save time and <strong>bandwidth</strong> compared to resending an entire file</li>
+  </ul>
+  <h2 class="hidden offset">Methods of Data Transmission</h2>
+  <p class="hidden offset"><strong>Serial</strong> means that bits are transmitted one after another along a single wire. <strong>Parallel</strong> transmission involes multiple wires transmitting bits simultaneously. Parallel transmission has the advantage of sending more bits per cycle. However, parallel transmission is more prone to <strong>errors</strong> than serial transmission.</p>
+  <p class="hidden offset">There are 3 methods that determine the direction of data transmission.</p>
+  <ul class="hidden offset">
+    <li><strong>Simplex</strong>: data transmission only occurs in one direction from the transmitter to the receiver</li>
+    <li><strong>Half-Duplex</strong>: data can be transmitted and received by both sides but both sides can't transmit at the same time</li>
+    <li><strong>Full-Duplex</strong>: data transmission can occur in both directions simultaneously</li>
+  </ul>
+  <div class="callout">
+    <div class="emoji-container">
+      🤔
+    </div>
+    <div class="notes">
+      A video streaming service might opt to use <strong>parallel</strong> <strong>half-duplex</strong> data transmission to upload videos to their web server. Parallel transmission allows a large amount of data to be transferred faster. Half-duplex transmission is appropriate because data can be uploaded and downloaded. However, uploading and downloading doesn't have to happen at the same time.
+    </div>
+  </div>
+</section>
