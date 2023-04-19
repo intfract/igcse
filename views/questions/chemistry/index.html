@@ -8,14 +8,18 @@
 <body>
   #{ include('$appbar.html') }#
   #{ include('$drawer.html') }#
+  #{ include('$questions/dialog.html') }#
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
       <h1 class="hidden offset">Chemistry</h1>
       <hr class="compressed">
-      <p class="hidden offset" style="text-align: center;">Answer topic questions individually or build a custom quiz!</p>
-      
+      #{ include ('$questions/table.html') }#
+      #{ include('$questions/tablist.html') }#
+      #{ include('$questions/quiz.html') }#
     </section>
   </main>
   #{ include('$root.html') }#
+  <script src="#{ path }#questions.js"></script>
+  <script src="#{ path }#builder.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@ async function fill() {
   const topic = path[3]
   const response = await fetch(`/api/questions?${new URLSearchParams({ subject, topic })}`)
   const { selective, theory } = await response.json()
+  scroller.innerHTML = ''
   for (let i = 0; i < selective.length; i++) {
     const item = selective[i]
     scroller.appendChild(question(i))
@@ -32,7 +33,7 @@ const ol = document.querySelector('form ol')
 const dialog = component('dialog', document.querySelector('.mdc-dialog'))
 const dialogTitle = document.querySelector('#dialog-title')
 const dialogContent = document.querySelector('#dialog-content')
-document.querySelector('form h3').innerHTML = window.location.pathname.split('/').at(-1).toUpperCase()
+document.querySelector('form h3').innerHTML = window.location.pathname.split('/').at(-1).toUpperCase().split('_').join(' ')
 
 const scheme = {
   selective: [],
