@@ -1,0 +1,35 @@
+{
+  "selective": [
+    {
+      "intro": "",
+      "statements": [],
+      "image": "",
+      "question": "Which of the following is a correct explanation of the effect of root hairs on absorption?",
+      "difficulty": 0,
+      "options": [
+        "provide a large surface area, maximising the rate of absorption of water and ions by osmosis",
+        "provide a large surface area, maximising the rate of absorption of water by osmosis and ions by active transport",
+        "increase the surface area, maximising the uptake of water by osmosis and ions by diffusion",
+        "provide a surface area, increasing the rate of absorption of water and ions by active transport"
+      ],
+      "scheme": 1,
+      "explanation": "The correct answer is: provide a large surface area, maximising the rate of absorption of water by osmosis and ions by active transport. \nA large surface area helps the roots absorb more water and nutrients at a time. Water is absorbed through osmosis because there is usually a lower water potential in the soil. Mineral ions are absorbed through active transport because there is a usually a higher concentation of ions in the cell than the soil."
+    },
+    {
+      "intro": "The diagram shows a transverse section through a plant stem.",
+      "statements": [],
+      "image": "stem cross section.png",
+      "question": "Which tissue is X?",
+      "difficulty": 0,
+      "options": [
+        "mesophyll",
+        "phloem",
+        "epidermis",
+        "xylem"
+      ],
+      "scheme": 1,
+      "explanation": "The correct answer is: phloem. \nPhloem tend to be near the outside of plants while xylem tend to be more central."
+    }
+  ],
+  "theory": []
+}

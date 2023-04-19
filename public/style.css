@@ -104,11 +104,24 @@ section .content {
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  min-height: 320px;
   margin: auto;
 }
 
 .text {
   width: 50%;
+}
+
+.graphic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
+  height: 320px;
+}
+
+.graphic img {
+  height: 100%;
 }
 
 main ul {
@@ -255,6 +268,10 @@ form h3 {
 
 form img {
   width: 50%;
+}
+
+.quiz {
+  min-height: 800px;
 }
 
 .mdc-card {

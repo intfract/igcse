@@ -44,6 +44,21 @@
       ],
       "scheme": 2,
       "explanation": "The correct answer is: nucleus and vacuole. \nThe nucleus and vacuole are the largest structures of the cell and can be easily seen under a light microscope. \nRibosomes are too small and require an electron microscope for viewing. \nChloroplasts are found in cells that can phtotosynthesise. Root hair cells do not have chloroplasts."
+    },
+    {
+      "intro": "",
+      "statements": [],
+      "image": "",
+      "question": "Which of the statements below correctly describes the importance of osmosis in plant tissues?",
+      "difficulty": 0,
+      "options": [
+        "Plants are supported by osmosis filling the cell wall with water, increasing the strength of the cell.",
+        "Plants are supported by the pressure of water inside the cells pressing outwards on the cell wall.",
+        "Plants are supported by the pressure of water outside the cells pressing inwards on the cell wall.",
+        "Plants are supported by osmosis filling the cell membrane with water, increasing the strength of the cell."
+      ],
+      "scheme": 1,
+      "explanation": "The correct answer is: Plants are supported by the pressure of water inside the cells pressing outwards on the cell wall. \nPlant cells become turgid when placed in a hypotonic solution because water enters the cell via osmosis. The plant cell swells with water but does not burst due to the cell wall. The turgor pressure created by the water keeps the plant cell stiff."
     }
   ],
   "theory": []
