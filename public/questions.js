@@ -31,7 +31,7 @@ function update(ctx, index) {
   } else {
     ol.setAttribute('style', 'display: none;')
   }
-  dialogContent.innerHTML = ctx[index].explanation.replaceAll('\n', '<br>')
+  dialogContent.innerHTML = ctx[index].explanation.replaceAll('\n', '<br>'.repeat(2))
   for (let i = 0; i < ctx[index].options.length; i++) {
     const option = ctx[index].options[i]
     labels[i].innerHTML = option

@@ -1,0 +1,20 @@
+{
+  "selective": [
+    {
+      "intro": "Aluminium and oxygen react to produce aluminium oxide. <div style=\"text-align: center; width: 100%; margin-top: 1em;\">4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></div>",
+      "statements": [],
+      "image": "",
+      "question": "How many kilograms of aluminium oxide are formed when 5.4 kg of aluminium react with excess oxygen?",
+      "difficulty": 1,
+      "options": [
+        "5.4 kg",
+        "88 kg",
+        "10.2 kg",
+        "33.6 kg"
+      ],
+      "scheme": 2,
+      "explanation": "The correct answer is: 10.2 kg. 4 moles of Al produces 2 moles of Al<sub>2</sub>O<sub>3</sub>. The mass of 4Al is: 5400 grams. The relative atomic mass of Al is: 27 grams per mole. The number of moles is: 5400g / 27g mol<sup>-1</sup> = 200mol. \nThere are 100 moles of Al<sub>2</sub>O<sub>3</sub> because every 4 moles of Al produces 2 moles of Al<sub>2</sub>O<sub>3</sub>. The relative atomic mass of Al<sub>2</sub>O<sub>3</sub> is: 104 grams per mole. The mass of 2 Al<sub>2</sub>O<sub>3</sub> is: 104g mol<sup>-1</sup> * 100mol = 10400g."
+    }
+  ],
+  "theory": []
+}
