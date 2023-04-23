@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "igcse-web"
+  },
+  "targets": {
+    "igcse-web": {
+      "hosting": {
+        "xigcse": [
+          "xigcse"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
