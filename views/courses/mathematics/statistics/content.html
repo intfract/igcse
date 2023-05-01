@@ -1,0 +1,166 @@
+<section>
+  <h1 class="hidden offset">Statistics</h1>
+  <hr class="compressed">
+  <h2 class="hidden offset">Averages</h2>
+  <p class="hidden offset">The average usually refers to the mean. However, in statistics, there are 3 types of averages.</p>  
+  <ul class="hidden offset">
+    <li><strong>Mean</strong>: sum over count</li>
+    <li><strong>Median</strong>: middle value</li>
+    <li><strong>Mode</strong>: most common value</li>
+  </ul>
+  <p class="hidden offset">The 3 averages are designed to work on lists, but it is possible to use them on frequency tables as well. There are 3 types of quantitative datasets.</p>
+  <ul class="hidden offset">
+    <li>List (Linear)</li>
+    <li>Ungrouped Frequency Table (Discrete Table)</li>
+    <li>Grouped Frequency Table (Continuous Table)</li>
+  </ul>
+  <h3 class="hidden offset">The Mean</h3>
+  <p class="hidden offset">The mean is calculated by dividing the total of the items by the number of items. The principle is the same across all datasets because a grouped frequency table can be converted to an ungrouped one which can then be simplified to a list of numbers.</p>
+  <p class="hidden offset">The mean of a <strong>list</strong> is simple. Divide the sum of the list or set of numbers by the length of the list or set.</p>
+  <p class="hidden katex-display">
+    \( \overline{A}=\frac{\sum{A}}{\textrm{n}(A)} \)
+  </p>
+  <p class="hidden offset">The mean of <strong>ungrouped data</strong> can be accurately found by converting it to a list through repetition. However, it is quicker to divide the <strong>sum of each pair's product</strong> by the <strong>sum of the frequencies</strong>.</p>
+  <p class="hidden katex-display">
+    \( \overline{A}=\frac{\sum{A_{x} \times A_{f}}}{\sum{A_{f}}} \)
+  </p>
+  <div class="columns">
+    <div class="mdc-data-table hidden">
+      <div class="mdc-data-table__table-container">
+        <table class="mdc-data-table__table" aria-label="Comparison of xylem and phloem">
+          <thead>
+            <tr class="mdc-data-table__header-row">
+              <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col">
+                <div class="mdc-checkbox mdc-data-table__header-row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-label="Toggle all rows"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Star Rating</th>
+              <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Frequency</th>
+            </tr>
+          </thead>
+          <tbody class="mdc-data-table__content">
+            <tr data-row-id="u0" class="mdc-data-table__row">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u0"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u0">0</th>
+              <td class="mdc-data-table__cell">2</td>
+            </tr>
+            <tr data-row-id="u1" class="mdc-data-table__row" aria-selected="true">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u1"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u1">1</th>
+              <td class="mdc-data-table__cell">1</td>
+            </tr>
+            <tr data-row-id="u2" class="mdc-data-table__row" aria-selected="true">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u2"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u2">2</th>
+              <td class="mdc-data-table__cell">0</td>
+            </tr>
+            <tr data-row-id="u3" class="mdc-data-table__row" aria-selected="true">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u2"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u3">3</th>
+              <td class="mdc-data-table__cell">1</td>
+            </tr>
+            <tr data-row-id="u4" class="mdc-data-table__row" aria-selected="true">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u2"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u4">4</th>
+              <td class="mdc-data-table__cell">2</td>
+            </tr>
+            <tr data-row-id="u5" class="mdc-data-table__row" aria-selected="true">
+              <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                  <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u2"/>
+                  <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                      <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                  </div>
+                  <div class="mdc-checkbox__ripple"></div>
+                </div>
+              </td>
+              <th class="mdc-data-table__cell" scope="row" id="u5">5</th>
+              <td class="mdc-data-table__cell">4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="column">
+      <p class="hidden offset">Frequency is a count of a specific star rating in a list.</p>
+      <p class="hidden katex-display">
+        \( \overline{A}=\frac{0 \times 2 + 1 \times 1 \ldots 5 \times 4}{2 + 1 + 0 + 1 + 2 + 4} \)
+      </p>
+      <p class="hidden offset">The list form is 0, 0, 1, 3, 4, 4, 5, 5, 5, 5, 5. A frequency table simply condenses a list of numeric values.</p>
+    </div>
+  </div>
+  <p class="hidden offset">The mean of <strong>grouped data</strong> is an estimated mean because the data has lost accuracy. The use of ranges is a form of lossy compression in statistics. A range does not contain information about the distribution of values in the range. The mean of the <strong>lower and upper bounds</strong> is treated as a value instead of the range. This ultimately transforms the ungrouped dataset into a grouped dataset.</p>
+  <p class="hidden katex-display">
+    \( A_{m}=\frac{A_{l}+A_{u}}{2} \)
+  </p>
+  <p class="hidden offset">The mean or <strong>midpoint</strong> of the lower bound and upper bound is used to convert the grouped frequency table into an approximate ungrouped table.</p>
+  <p class="hidden katex-display">
+    \( \overline{A}=\frac{\sum{A_{m} \times A_{f}}}{\sum{A_{f}}} \)
+  </p>
+</section>

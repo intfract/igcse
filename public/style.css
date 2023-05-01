@@ -195,7 +195,7 @@ img.emoji {
   justify-content: space-between;
 }
 
-.columns > ul, .columns > p, .columns > .column {
+.columns > ul, .columns > p, .columns > .column, .columns > div {
   width: 45%;
 }
 
@@ -477,4 +477,8 @@ form img {
 
 .highlight {
   color: var(--mdc-theme-primary);
+}
+
+.katex-display {
+  font-size: 24px;
 }
