@@ -108,6 +108,13 @@ section .content {
   margin: auto;
 }
 
+code {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--mdc-theme-callout);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
 .text {
   width: 50%;
 }
@@ -126,6 +133,7 @@ section .content {
 
 main ul {
   padding: 0 0 0 20px;
+  list-style-type: disc;
 }
 
 .callout {
