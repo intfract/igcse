@@ -41,7 +41,7 @@
     </div>
   </div>
   <h2 class="hidden offset">Grip Rule</h2>
-  <p class="hidden offset">The right-hand grip rule is used to determine the rotation of a magnetic field produced by a current flowing through a wire. The thumb points in the direction of the current while the fingers curl in the direction of the magnetic field.</p>
+  <p class="hidden offset">The right-hand grip rule is used to determine the rotation of a magnetic field produced by a current flowing through a wire. The thumb points in the direction of the current while the fingers curl in the direction of the magnetic field. Solenoids follow this rule as well.</p>
   <div class="diagram hidden">
     <img src="#{ path }#images/wire current.png" alt="right hand grip rule">
   </div>
@@ -77,14 +77,37 @@
   </div>
   <h3 class="hidden offset">AC Generator</h3>
   <p class="hidden offset">The current flows left instead of right in Fleming's right-hand rule. This is because kinetic energy is converted into electrical energy.</p>
+  <h2 class="hidden offset">Induction</h2>
+  <p class="hidden offset">Electromagnetic induction occurs when a conductive coil cuts a magnetic field and causes a potential difference. This causes current to flow.</p>
+  <h3 class="hidden offset">Solenoids</h3>
+  <p class="hidden offset">Solenoids are circular coils of wire. They look like a hollow cylinder with multiple loops. Magnetic cores can be placed inside solenoids to create electrogmagnets. This is because the magnetic field created by a solenoid is similar to a bar magnet.</p>
+  <p class="hidden offset">There is an experiment that involves oscillating a bar magnet in and out of a solenoid. The movement of the bar magnet produces alternating voltage.</p>
+  <ul class="hidden offset">
+    <li>The solenoid cuts the magnetic field of the magnet and indcues a voltage</li>
+    <li>The voltage is reversed when the magnet changes direction and alternating current is produced</li>
+  </ul>
   <h2 class="hidden offset">Transformers</h2>
   <p class="hidden offset">These are not robots. Transformers are devices that increase (step-up) voltage or decrease (step-down) voltage. The side with the most coils would have a higher voltage. In theory, transformers are 100% efficient. This means that the output voltage is directly proportional to the number of coils.</p>
   <div class="diagram hidden">
     <img src="#{ path }#images/transformer.png" alt="step-down transformer">
   </div>
+  <h3 class="hidden offset">Transformer Coil Equation</h3>
   <p class="hidden offset">The variable \( V_p \) represents the primary input voltage while \( N_s \) represents the secondary output number of coils. The ratio of the voltages is equal to the ratio of the coils.</p>
   <p class="hidden katex-display">
     \( \frac{V_p}{V_s} = \frac{N_p}{N_s} \)
   </p>
+  <h3 class="hidden offset">Transformer Power Equation</h3>
   <p class="hidden offset">Another transformer equation involves power. The input power is equal to the output power. However, high voltage and low current is used to transfer electricity across long distances to reduce power loss.</p>
+  <p class="hidden katex-display">
+    \(
+    P_p = P_s \\
+    V_p \times I_p = V_s \times I_s
+    \)
+  </p>
+  <ul class="hidden offset">
+    <li>
+      High voltages decrease power loss because power loss is calculated as \( I^2 \times R \)
+    </li>
+    <li>A smaller current is safer to work with</li>
+  </ul>
 </section>
