@@ -4,7 +4,7 @@
   Please leave this comment as attribution!
 */
 
-import { render } from 'inflict'
+import { render } from 'webity'
 import express from 'express'
 import fetch from 'node-fetch'
 import bodyParser from 'body-parser'
@@ -26,50 +26,50 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 app.get('/', async (req, res) => {
-  res.send(render('views', '', { title: 'IGCSE', path: '' })) 
+  res.send(render('views', '', { title: 'IGCSE', path: '' }).html) 
 })
 
 app.get('/courses/:subject', (req, res) => {
   try {
-    res.send(render(`views/courses/${req.params.subject}`, '', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+    res.send(render(`views/courses/${req.params.subject}`, '', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }).html)
   } catch (e) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }))
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }).html)
   }
 })
 
 app.get('/courses/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../../', relative: `courses/${req.params.subject}` }))
+    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../../', relative: `courses/${req.params.subject}/${req.params.topic}` }).html)
   } catch (e) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }).html)
   }
 })
 
 app.get('/content', (req, res) => {
-  res.send(render('views', 'content.html', {}))
+  res.send(render('views', 'content.html', {}).html)
 })
 
 app.get('/content/:subject', (req, res) => {
   try {
-    res.send(render(`views/courses/${req.params.subject}`, 'content.html', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }))
+    res.send(render(`views/courses/${req.params.subject}`, 'content.html', { title: `${req.params.subject.replace('_', ' ').toUpperCase()}`, path: '../../', relative: `courses/${req.params.subject}` }).html)
   } catch (e) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }))
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../' }).html)
   }
 })
 
 app.get('/questions', (req, res) => {
-  res.send(render(`views/questions`, '', { title: `IGCSE QUESTIONS`, path: '', relative: 'questions' }))
+  res.send(render(`views/questions`, '', { title: `IGCSE QUESTIONS`, path: '', relative: 'questions' }).html)
 })
 
 app.get('/questions/:subject', (req, res) => {
-  res.send(render(`views/questions/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../', relative: `questions/${req.params.subject}` }))
+  res.send(render(`views/questions/${req.params.subject}`, '', { title: `IGCSE ${req.params.subject.replace('_', ' ').toUpperCase()} QUESTIONS`, path: '../../', relative: `questions/${req.params.subject}` }).html)
 })
 
 app.get('/questions/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUIZ`, path: '../../../', relative: `questions/${req.params.subject}` }))
+    res.send(render(`views/questions/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()} QUIZ`, path: '../../../', relative: `questions/${req.params.subject}` }).html)
   } catch (e) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }))
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }).html)
   }
 
 })
@@ -106,7 +106,7 @@ app.get('/api/search', (req, res) => {
       const icon = icons[scope]
       const topics = fs.readdirSync(`views/courses/${scope}`).filter(file => !file.endsWith('.html'))
       for (const topic of topics) {
-        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
         if (contains(notes, query.q)) {
           result[topic] = {
             text: notes,
@@ -121,7 +121,7 @@ app.get('/api/search', (req, res) => {
   }
   const courses = fs.readdirSync('views/courses')
   for (const course of courses) {
-    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
     const icon = icons[course]
     if (contains(content, query.q)) {
       result[course] = {
@@ -133,7 +133,7 @@ app.get('/api/search', (req, res) => {
     }
     const topics = fs.readdirSync(`views/courses/${course}`).filter(file => !file.endsWith('.html'))
     for (const topic of topics) {
-      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
       if (contains(notes, query.q)) {
         result[topic] = {
           text: notes,
@@ -197,13 +197,13 @@ app.get('/api/questions', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  res.send(render(`views/search`, '', { title: 'Search Page', path: '../' }))
+  res.send(render(`views/search`, '', { title: 'Search Page', path: '../' }).html)
 })
 
 app.get('*', (req, res) => {
   res.status(404)
   if (req.accepts('html')) {
-    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../' }))
+    res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../' }).html)
     return
   }
   if (req.accepts('json')) {

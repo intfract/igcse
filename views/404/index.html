@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  #{ include('$meta.html') }#
-  <title>#{ title }#</title>
-  #{ include('$lib.html') }#
+  %{ include('$meta.html') }%
+  <title>%{ title }%</title>
+  %{ include('$lib.html') }%
 </head>
 <body>
-  #{ include('$appbar.html') }#
-  #{ include('$drawer.html') }#
+  %{ include('$appbar.html') }%
+  %{ include('$drawer.html') }%
   <main class="mdc-top-app-bar--fixed-adjust">
     <section>
       <h1 class="hidden offset">404</h1>
       <hr class="compressed">
       <p class="hidden offset" style="text-align: center;">Looks like a bug slipped through our defences!</p>
       <div class="vector hidden">
-        <img src="#{ path }#svg/undraw server down.svg" alt="404">
+        <img src="%{ path }%svg/undraw server down.svg" alt="404">
       </div>
       <p class="hidden offset" style="text-align: center;">Or maybe you are lost?</p>
       <div class="links hidden">
@@ -24,6 +24,6 @@
       </div>
     </section>
   </main>
-  #{ include('$root.html') }#
+  %{ include('$root.html') }%
 </body>
 </html>

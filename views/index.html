@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  #{ include('$meta.html') }#
+  %{ include('$meta.html') }%
   <meta name="google-site-verification" content="GAc-9GWcuDWHPUBO5IgMnLO-h1onWgn538jz_MDWKGo" />
-  <title>#{ title }#</title>
-  #{ include('$lib.html') }#
+  <title>%{ title }%</title>
+  %{ include('$lib.html') }%
 </head>
 <body>
-  #{ include('$appbar.html') }#
-  #{ include('$drawer.html') }#
-  <main class="mdc-top-app-bar--fixed-adjust">#{ include('content.html') }#</main>
-  #{ include('$root.html') }#
+  %{ include('$appbar.html') }%
+  %{ include('$drawer.html') }%
+  <main class="mdc-top-app-bar--fixed-adjust">%{ include('content.html') }%</main>
+  %{ include('$root.html') }%
 </body>
 </html>
