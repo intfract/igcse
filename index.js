@@ -18,8 +18,19 @@ const app = express()
 
 const port = process.env.PORT || 3000
 
+/**
+ * determines whether a string contains words
+ * @param {string} text the larger body of text to check against
+ * @param {string} search the substring or query
+ */
+
 function contains(text, search) {
-  return text.toLowerCase().includes(search.toLowerCase())
+  text = text.toLowerCase()
+  const words = search.split(' ').map(word => word.toLowerCase())
+  for (const word of words) {
+    if (!text.includes(word)) return false
+  }
+  return true
 }
 
 app.use(express.static('public'))
@@ -88,6 +99,7 @@ app.get('/api', (req, res) => {
 })
 
 app.get('/api/search', (req, res) => {
+  const regex = /<\/*[A-z0-9 ="#%{}.\$/:-]+>/g
   const { query } = req
   console.log(query)
   if (!('q' in query) || !query.q) return res.status(404).json({ error: 'empty query' })
@@ -106,7 +118,7 @@ app.get('/api/search', (req, res) => {
       const icon = icons[scope]
       const topics = fs.readdirSync(`views/courses/${scope}`).filter(file => !file.endsWith('.html'))
       for (const topic of topics) {
-        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
+        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(regex, '')
         if (contains(notes, query.q)) {
           result[topic] = {
             text: notes,
@@ -121,7 +133,7 @@ app.get('/api/search', (req, res) => {
   }
   const courses = fs.readdirSync('views/courses')
   for (const course of courses) {
-    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
+    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(regex, '')
     const icon = icons[course]
     if (contains(content, query.q)) {
       result[course] = {
@@ -133,7 +145,7 @@ app.get('/api/search', (req, res) => {
     }
     const topics = fs.readdirSync(`views/courses/${course}`).filter(file => !file.endsWith('.html'))
     for (const topic of topics) {
-      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#%{}.\$/:-]+>/g, '')
+      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(regex, '')
       if (contains(notes, query.q)) {
         result[topic] = {
           text: notes,

@@ -6,7 +6,7 @@ Providing **free** IGCSE resources for everyone!
 
 This website uses [Material Design 2](https://m2.material.io) for components and design guidelines because [Material 3](https://m3.material.io) does not support the web yet and looks worse. 
 
-The SSR system was built using my own TypeScript library called [inflict](https://github.com/inflictjs/inflict) which can integrate with [express](https://github.com/expressjs) neatly. 
+The SSR system was built using my own TypeScript library called [webity](https://github.com/bitlogist/webity) which can integrate with [express](https://github.com/expressjs) neatly. 
 
 A **FORK** and **STAR** shows that you support this project! 
 
@@ -20,15 +20,20 @@ Essentially, you can do anything you want to the code as long as your version is
 
 ## API
 
-The `/api` route is a JSON API for searching pages and extracting useful information. There is no need to use Algolia or Google Search to index pages. 
+The `/api` route is a JSON API can be used to fetch information about website content like notes or questions.
+
+### Search
+
+The `/api/search` route is meant for searching pages and extracting useful information. There is no need to use Algolia or Google Search to index pages.
 
 ```js
 // file searching might need some tweaking if different file types are included other than .html in views
 app.get('/api/search', (req, res) => {
+  const regex = /<\/*[A-z0-9 ="#%{}.\$/:-]+>/g
   const { query } = req
   console.log(query)
   if (!('q' in query) || !query.q) return res.status(404).json({ error: 'empty query' })
-  const courses = fs.readdirSync('views/courses')
+  if (query.q === '*') query.q = ''
   const result = {}
   const icons = {
     'mathematics': 'calculate',
@@ -37,8 +42,28 @@ app.get('/api/search', (req, res) => {
     'chemistry': 'science',
     'physics': 'speed',
   }
+  if ('scopes' in query) {
+    for (const scope of query.scopes.split(',')) {
+      if (!Object.keys(icons).includes(scope)) return res.status(404).json({ error: 'invalid scope' })
+      const icon = icons[scope]
+      const topics = fs.readdirSync(`views/courses/${scope}`).filter(file => !file.endsWith('.html'))
+      for (const topic of topics) {
+        const notes = fs.readFileSync(`views/courses/${scope}/${topic}/content.html`, 'utf-8').replaceAll(regex, '')
+        if (contains(notes, query.q)) {
+          result[topic] = {
+            text: notes,
+            path: `/courses/${scope}/${topic}`,
+            icon,
+            topic: true,
+          }
+        }
+      }
+    }
+    return res.json(result)
+  }
+  const courses = fs.readdirSync('views/courses')
   for (const course of courses) {
-    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+    const content = fs.readFileSync(`views/courses/${course}/content.html`, 'utf-8').replaceAll(regex, '')
     const icon = icons[course]
     if (contains(content, query.q)) {
       result[course] = {
@@ -50,7 +75,7 @@ app.get('/api/search', (req, res) => {
     }
     const topics = fs.readdirSync(`views/courses/${course}`).filter(file => !file.endsWith('.html'))
     for (const topic of topics) {
-      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(/<\/*[A-z0-9 ="#{}.$/:-]+>/g, '')
+      const notes = fs.readFileSync(`views/courses/${course}/${topic}/content.html`, 'utf-8').replaceAll(regex, '')
       if (contains(notes, query.q)) {
         result[topic] = {
           text: notes,
@@ -67,8 +92,8 @@ app.get('/api/search', (req, res) => {
 
 ## Development
 
-It might be a good idea to view the [inflict](https://npmjs.com/inflict) documentation before you continue development.
-> Templates are placed inside `#{}#` hash brackets that return strings as plain text.
+It might be a good idea to view the [webity](https://npmjs.com/webity) documentation before you continue development.
+> Templates are placed inside `%{}%` special brackets that return strings as plain text.
 
 Make sure to install all dependencies before you run your project.
 
@@ -90,36 +115,36 @@ There are a lot of folders in this repository.
 
 ### Rendering
 
-The inflict templates are extremely flexible. The `$` selector can be used to identify a file by its path starting from the `views` directory. 
+The webity templates are extremely flexible. The `$` selector can be used to identify a file by its path starting from the `views` directory. 
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- renders views/meta.html -->
-  #{ include('$meta.html') }#
+  %{ include('$meta.html') }%
   <!-- renders the title string -->
-  <title>#{ title }#</title>
-  #{ include('$lib.html') }#
+  <title>%{ title }%</title>
+  %{ include('$lib.html') }%
 </head>
 <body>
-  #{ include('$appbar.html') }#
-  #{ include('$drawer.html') }#
+  %{ include('$appbar.html') }%
+  %{ include('$drawer.html') }%
   <main class="mdc-top-app-bar--fixed-adjust">
-    <!-- renders ./content.html relative to the current inflict path -->
-    #{ include('content.html') }#
+    <!-- renders ./content.html relative to the current webity path -->
+    %{ include('content.html') }%
   </main>
-  #{ include('$root.html') }#
+  %{ include('$root.html') }%
 </body>
 </html>
 ```
 
-Other parameters can be passed through inflict to dynamically set `src` and `href` properties. 
+Other parameters can be passed through webity to dynamically set `src` and `href` properties. 
 
 ```html
 <!-- renders ./animations.js for HOME and ../../animations.js for COURSES -->
-<script src="#{ path + 'animations.js' }#"></script>
-<script src="#{ path + 'script.js' }#"></script>
+<script src="%{ path + 'animations.js' }%"></script>
+<script src="%{ path + 'script.js' }%"></script>
 ```
 
 ## Features
