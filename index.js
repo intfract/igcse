@@ -4,7 +4,7 @@
   Please leave this comment as attribution!
 */
 
-import { render } from 'webity'
+import { render, Router } from 'webity'
 import express from 'express'
 import fetch from 'node-fetch'
 import bodyParser from 'body-parser'
