@@ -50,7 +50,7 @@ app.get('/courses/:subject', (req, res) => {
 
 app.get('/courses/:subject/:topic', (req, res) => {
   try {
-    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../../', relative: `courses/${req.params.subject}/${req.params.topic}` }).html)
+    res.send(render(`views/courses/${req.params.subject}/${req.params.topic}`, '', { title: `${req.params.topic.replace('_', ' ').toUpperCase()}`, path: '../../../', relative: `courses/${req.params.subject}/${req.params.topic}` }, true).html)
   } catch (e) {
     res.send(render(`views/404`, '', { title: '404 Not Found!', path: '../../../' }).html)
   }

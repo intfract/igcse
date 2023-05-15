@@ -214,7 +214,7 @@ img.emoji {
 }
 
 .minus {
-  color: var(--mdc-theme-secondary);
+  color: var(--mdc-theme-error);
   list-style-type: '-   ';
 }
 
