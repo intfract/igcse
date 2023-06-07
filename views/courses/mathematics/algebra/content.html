@@ -147,6 +147,25 @@
     <li>Completing the Square</li>
     <li>The Quadratic Formula</li>
   </ul>
+  <p class="hidden katex-display">
+    \( ax^2+bx+c \)
+  </p>
+  <h3 class="hidden offset">Factorisation</h3>
+  <p class="hidden offset">Factorisation involves finding the roots or real solutions of a parabola by factorising a quadratic into 2 brackets.</p>
+  <ol class="hidden offset">
+    <li>
+      List the <strong>positive and negative</strong> factors of \( ac \)
+    </li>
+    <li>
+      Choose the factor pair that adds up to \( b \)
+    </li>
+    <li>
+      Rewrite the qudratic in the form \( ax^{2}+mx+nx+c \) where \( m+n=b \)
+    </li>
+    <li>
+      Factorise both parts of the quadratic fully if possible like \( x\left(ax+m\right)+nx+c \)
+    </li>
+  </ol>
   <h3 class="hidden offset">Completing the Square</h3>
   <p class="hidden offset">Completing the square is a method that has 3 purposes.</p>
   <ul class="hidden offset">
@@ -169,7 +188,34 @@
       ax^{2}+bx+c \\
       \textcolor{#2c6fef}{\frac{a}{a}}\left(ax^{2}+bx\right)+c \\
       a\left(x^{2}+\textcolor{#2c6fef}{\frac{b}{a}}x\right)+c \\
-      a\left(x^{2}+\frac{b}{a}x\textcolor{#2c6fef}{+\left(\frac{b}{2a}\right)^{2}}\textcolor{#e1503c}{-\left(\frac{b}{2a}\right)^{2}}\right)+c
+      a\left(x^{2}+\frac{b}{a}x\textcolor{#2c6fef}{+\left(\frac{b}{2a}\right)^{2}}\textcolor{#e1503c}{-\left(\frac{b}{2a}\right)^{2}}\right)+c \\
+      a\textcolor{#2c6fef}{\left(x+\frac{b}{2a}\right)^{2}}\textcolor{#e1503c}{-a\left(\frac{b}{2a}\right)^{2}}+c \\
+      a\left(x+\frac{b}{2a}\right)^{2}+c-\frac{b^{2}}{4a}
+    \)
+  </p>
+  <p class="hidden offset">The parabola's vertex is located at \( (h, k) \) where \( h \) is the axis of symmetry and \( k \) is the minimum or maximum value of the parabola.</p>
+  <ul class="hidden offset">
+    <li>
+      A positive \( b \) coefficient will shift the <strong>x-axis</strong> to the right or shift the parabola to the left
+    </li>
+    <li>
+      A positive \( a \) coefficient will mean the parabola has a minimum value while a negative coefficient suggests a maximum value 
+    </li>
+  </ul>
+  <p class="hidden katex-display">
+    \(
+      h=-\frac{b}{2a} \\
+      k=c-\frac{b^{2}}{4a}
+    \)
+  </p>
+  <p class="hidden offset">It is possible to solve a quadratic equation through completing the square. Modifications to this method eventually led to the quadratic formula.</p>
+  <p class="hidden katex-display">
+    \(
+      a\left(x-h\right)^{2}+k=0 \\
+      a\left(x-h\right)^{2}=-k \\
+      \left(x-h\right)^{2}=-\frac{k}{a} \\
+      x-h=\pm\sqrt{-\frac{k}{a}} \\
+      x=h\pm\sqrt{-\frac{k}{a}}
     \)
   </p>
 </section>
