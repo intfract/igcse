@@ -87,6 +87,7 @@ const morebtn = document.querySelector('.mdc-top-app-bar button[aria-label="Opti
 const buttons = document.querySelectorAll('.mdc-button')
 const tables = document.querySelectorAll('.mdc-data-table')
 const lists = document.querySelectorAll('.mdc-list')
+const sliders = document.querySelectorAll('.mdc-slider')
 const emojiables = document.querySelectorAll('p, li, .callout')
 
 const nav = document.querySelector('.mdc-drawer .mdc-list')
@@ -105,6 +106,10 @@ for (const button of buttons) {
 
 for (const table of tables) {
   component('data-table', table)
+}
+
+for (const slider of sliders) {
+  component('slider', slider)
 }
 
 for (const list of lists) {
