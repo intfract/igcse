@@ -84,6 +84,36 @@
     </ul>
     <h3 class="hidden offset">Lenses and Mirrors</h3>
     <p class="hidden offset">Lenses and mirrors produce images from objects. These images can be categorised in 3 ways.</p>
+    <ul class="hidden offset">
+      <li>
+        <strong>Real</strong> or <strong>Virtual</strong>
+      </li>
+      <li>
+        <strong>Upright</strong> or <strong>Inverted</strong>
+      </li>
+      <li>
+        <strong>Bigger</strong> or <strong>Smaller</strong> or <strong>Equal</strong>
+      </li>
+    </ul>
+    <p class="hidden offset">Real images converge while virtual images diverge but appear to converge behind the lens or mirror.</p>
+    <mdc-table headers="['Property', 'Real', 'Virtual']" table="[['Rays Meet', 'icon:check', 'icon:close'], ['Projectable', 'icon:check', 'icon:close'], ['Orientation', 'Inverted', 'Upright']]"></mdc-table>
+    <ul class="hidden offset">
+      <li>
+        Convex lenses <strong>converge</strong> rays while concave lenses <strong>diverge</strong> rays.
+      </li>
+      <li>
+        Convex mirrors <strong>diverge</strong> rays while concave lenses <strong>converge</strong> rays.
+      </li>
+    </ul>
+    <p class="hidden offset">The table shows the image cases for converging lenses and mirrors.</p>
+    <mdc-table headers="['Position', 'Type', 'Orientaton', 'Scale']" table="[['x > 2f', 'Real', 'Inverted', 'Smaller'], ['x = 2f', 'Real', 'Inverted', 'Equal'], ['2f > x > f', 'Real', 'Inverted', 'Bigger'], ['x = f', 'Neither', 'Unknown', 'Infinite'], ['f > x > 0', 'Virtual', 'Upright', 'Bigger']]"></mdc-table>
+    <p class="hidden offset">The height and distance of the image can be determined using formulas. The formulas can be derived by solving a system of linear equations.</p>
+    <p class="hidden katex-display">
+      \(
+        h_i=\frac{f \times h_o}{f-d_o} \\
+        d_i=-\frac{d_o \times f}{f - d_o}
+      \)
+    </p>
   </section>
 </template>
 <script webity>
