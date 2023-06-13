@@ -108,12 +108,34 @@
     <p class="hidden offset">The table shows the image cases for converging lenses and mirrors.</p>
     <mdc-table headers="['Position', 'Type', 'Orientaton', 'Scale']" table="[['\\(d_o > 2f\\)', 'Real', 'Inverted', 'Smaller'], ['\\(d_o = 2f\\)', 'Real', 'Inverted', 'Equal'], ['\\(2f > d_o > f\\)', 'Real', 'Inverted', 'Bigger'], ['\\(d_o = f\\)', '?', '?', '?'], ['\\(f > d_o > 0\\)', 'Virtual', 'Upright', 'Bigger']]"></mdc-table>
     <p class="hidden offset">The height and distance of the image can be determined using formulas. The formulas can be derived by solving a system of linear equations.</p>
+    <ul class="hidden offset">
+      <li>A negative height means the image is inverted</li>
+      <li>Dividing the absolute height of the image by the height of the object will yield the scale</li>
+      <li>A negative distance means the image is virtual</li>
+    </ul>
     <p class="hidden katex-display">
       \(
         h_i=\frac{f \times h_o}{f-d_o} \\
         d_i=-\frac{d_o \times f}{f - d_o}
       \)
     </p>
+    <h3 class="hidden offset">Total Interal Reflection</h3>
+    <p class="hidden offset">Total internal reflection requires 2 conditions to happen.</p>
+    <ul class="hidden offset">
+      <li>
+        Light must be travelling from a <strong>denser medium</strong>
+      </li>
+      <li>
+        The <strong>angle of incidence</strong> must be greater than the <strong>critical angle</strong>
+      </li>
+    </ul>
+    <p class="hidden offset">Refraction will not happen at the <strong>critical angle</strong> of a denser medium because the ray would refract at 90 degrees and stay within the medium.</p>
+    <h3 class="hidden offset">Optical Fibres</h3>
+    <p class="hidden offset">A fibre-optic cable can send light signals. These cables use total internal reflection to transmit signals with minimal loss. Fibre-optics is mainly used in 2 fields.</p>
+    <ul class="hidden offset">
+      <li>Communications</li>
+      <li>Medicine</li>
+    </ul>
   </section>
 </template>
 <script webity>
