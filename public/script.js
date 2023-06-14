@@ -87,7 +87,6 @@ const morebtn = document.querySelector('.mdc-top-app-bar button[aria-label="Opti
 const buttons = document.querySelectorAll('.mdc-button')
 const tables = document.querySelectorAll('.mdc-data-table')
 const lists = document.querySelectorAll('.mdc-list')
-const sliders = document.querySelectorAll('.mdc-slider')
 const emojiables = document.querySelectorAll('p, li, .callout')
 
 const nav = document.querySelector('.mdc-drawer .mdc-list')
@@ -95,6 +94,25 @@ const main = document.querySelector('main')
 
 const { pathname } = window.location
 const current = pathname.replace('/courses/', '').split('/')[0].replace('_', ' ')
+
+const demoSlider = document.querySelector('.mdc-slider')
+const [object, image] = [document.querySelector('#object'), document.querySelector('#image')]
+
+if (demoSlider) {
+  const slider = component('slider', demoSlider)
+  const { min, max } = demoSlider.querySelector('input').attributes
+  const { width } = demoSlider.getBoundingClientRect()
+  const ratio = width / (max.value - min.value)
+  const constant = 24 // mdc-slider margin
+  console.log(ratio)
+  if (object && image) {
+    object.style.left = `${slider.getValue() * ratio + constant}px`
+    slider.listen('MDCSlider:input', e => {
+      const { value } = e.detail
+      object.style.left = `${value * ratio + constant}px`
+    })
+  }
+}
 
 for (const emojiable of emojiables) {
   twemoji.parse(emojiable)
@@ -106,10 +124,6 @@ for (const button of buttons) {
 
 for (const table of tables) {
   component('data-table', table)
-}
-
-for (const slider of sliders) {
-  component('slider', slider)
 }
 
 for (const list of lists) {

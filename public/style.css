@@ -435,6 +435,22 @@ footer {
   justify-content: center;
 }
 
+.interactive {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.svg {
+  align-self: center;
+  font-size: 0;
+}
+
+.lone {
+  position: absolute;
+  font-size: 0;
+}
+
 #search-label {
   color: var(--mdc-theme-on-primary);
 }
