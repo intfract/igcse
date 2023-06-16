@@ -22,6 +22,7 @@ body {
   width: 100%;
   height: 100vh;
   font-family: 'Plus Jakarta Sans';
+  overflow-x: hidden;
 }
 
 a, button, input, textarea {
@@ -439,6 +440,20 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.interactive .mdc-slider {
+  margin: 0;
+}
+
+.svg-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  font-size: 0;
+  overflow: hidden;
 }
 
 .svg {

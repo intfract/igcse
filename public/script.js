@@ -102,14 +102,19 @@ if (demoSlider) {
   const slider = component('slider', demoSlider)
   const { min, max } = demoSlider.querySelector('input').attributes
   const { width } = demoSlider.getBoundingClientRect()
-  const ratio = width / (max.value - min.value)
-  const constant = 24 // mdc-slider margin
-  console.log(ratio)
+  const ratio = width / (Number.parseInt(max.value) - Number.parseInt(min.value))
+  const constant = Number.parseInt(window.getComputedStyle(demoSlider).marginLeft.slice(0, -2)) // mdc-slider margin
+  const focus = 16 // focal distance
   if (object && image) {
     object.style.left = `${slider.getValue() * ratio + constant}px`
+    image.style.left = `${slider.getValue() * ratio + constant * 2 + width}px`
     slider.listen('MDCSlider:input', e => {
       const { value } = e.detail
+      const distance = max.value - value
+      const x = - (distance * focus) / (focus - distance)
       object.style.left = `${value * ratio + constant}px`
+      image.style.left = `${x * ratio + constant * 2 + width}px`
+      image.style.transform = `translate(-50%, -50%) scale(${focus / (focus - distance)}) translateY(-50%)`
     })
   }
 }
