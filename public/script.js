@@ -108,6 +108,7 @@ if (demoSlider) {
   if (object && image) {
     object.style.left = `${slider.getValue() * ratio + constant}px`
     image.style.left = `${slider.getValue() * ratio + constant * 2 + width}px`
+    image.style.transform = `translate(-50%, -50%) scale(${focus / (focus - (max.value - slider.getValue()))}) translateY(-50%)`
     slider.listen('MDCSlider:input', e => {
       const { value } = e.detail
       const distance = max.value - value
