@@ -264,7 +264,7 @@
     const focus = 16 // focal distance
     const h = object.getBoundingClientRect().height
     straight.style.transform = `rotate(${getSlopeAngle(h, -(max.value - slider.getValue()) * ratio)}rad)`
-    refracted.style.transform = `translateX(${focus}px) rotate(${getSlopeAngle(h, -focus * ratio)}rad)`
+    refracted.style.transform = `translateX(${focus * ratio}px) rotate(${getSlopeAngle(h, -focus * ratio)}rad)`
     if (object && image) {
       object.style.left = `${slider.getValue() * ratio + constant}px`
       image.style.left = `${slider.getValue() * ratio + constant * 2 + width}px`
