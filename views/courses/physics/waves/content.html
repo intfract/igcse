@@ -150,6 +150,21 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M16 124.032C5.80541 105.66 0 84.5159 0 62.0158C0 39.5158 5.80538 18.3717 16 -0.000244141C26.1946 18.3718 32 39.5159 32 62.0159C32 84.5159 26.1946 105.66 16 124.032Z" fill="#6FB4FF"/>
           </svg>
         </div>
+        <div class="svg">
+          <svg width="516" height="5" viewBox="0 0 516 5" fill="none" xmlns="http://www.w3.org/2000/svg" id="line">
+            <path d="M2 2.38037H512" stroke="black" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="svg">
+          <svg width="516" height="5" viewBox="0 0 516 5" fill="none" xmlns="http://www.w3.org/2000/svg" id="straight">
+            <path d="M2 2.38037H512" stroke="#ffc107" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="svg">
+          <svg width="516" height="5" viewBox="0 0 516 5" fill="none" xmlns="http://www.w3.org/2000/svg" id="refracted">
+            <path d="M2 2.38037H512" stroke="#ffc107" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="lone" id="object" style="transform: translate(-50%, -100%); top: 50%;">
           <svg width="30" height="45" viewBox="0 0 30 45" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13 42.3804C13 43.4849 13.8954 44.3804 15 44.3804C16.1046 44.3804 17 43.4849 17 42.3804L13 42.3804ZM16.4142 0.966156C15.6332 0.185108 14.3668 0.185108 13.5858 0.966156L0.857863 13.6941C0.0768144 14.4751 0.0768144 15.7415 0.857863 16.5225C1.63891 17.3036 2.90524 17.3036 3.68629 16.5225L15 5.2088L26.3137 16.5225C27.0948 17.3036 28.3611 17.3036 29.1421 16.5225C29.9232 15.7415 29.9232 14.4751 29.1421 13.6941L16.4142 0.966156ZM17 42.3804L17 2.38037L13 2.38037L13 42.3804L17 42.3804Z" fill="#2c6fef"/>
@@ -195,6 +210,77 @@
     </ul>
   </section>
 </template>
+<script>
+  function sentence(text) {
+    return text[0].toUpperCase() + text.substr(1)
+  }
+
+  function camel(text) {
+    const words = text.split('-')
+    for (let i = 0; i < words.length; i++) {
+      if (i) words[i] = sentence(words[i])
+    }
+    return words.join('')
+  }
+
+  function pascal(text) {
+    const words = text.split('-')
+    for (let i = 0; i < words.length; i++) {
+      words[i] = sentence(words[i])
+    }
+    return words.join('')
+  }
+
+  function component(name, element) {
+    return mdc[camel(name)][`MDC${pascal(name)}`].attachTo(element)
+  }
+  
+  function setPathWidth(line, width) {
+    const path = line.querySelector('path')
+    const viewx = width
+    line.setAttribute('viewBox', `0 0 ${viewx} 5`)
+    line.setAttribute('width', viewx)
+    path.setAttribute('d', `M2 2.38037H${viewx - 4}`)
+  }
+
+  function getSlopeAngle(y, x) {
+    return Math.atan(y / x) * -1
+  }
+
+  const demoSlider = document.querySelector('.mdc-slider')
+  const line = document.querySelector('#line')
+  const straight = document.querySelector('#straight')
+  const refracted = document.querySelector('#refracted')
+  const [object, image] = [document.querySelector('#object'), document.querySelector('#image')]
+
+  if (demoSlider) {
+    const slider = component('slider', demoSlider)
+    const { min, max } = demoSlider.querySelector('input').attributes
+    const { width } = demoSlider.getBoundingClientRect()
+    setPathWidth(line, width * 2)
+    setPathWidth(straight, width * 2)
+    const ratio = width / (Number.parseInt(max.value) - Number.parseInt(min.value))
+    const constant = Number.parseInt(window.getComputedStyle(demoSlider).marginLeft.slice(0, -2)) // mdc-slider margin
+    const focus = 16 // focal distance
+    const h = object.getBoundingClientRect().height
+    straight.style.transform = `rotate(${getSlopeAngle(h, -(max.value - slider.getValue()) * ratio)}rad)`
+    refracted.style.transform = `translateX(${focus}px) rotate(${getSlopeAngle(h, -focus * ratio)}rad)`
+    if (object && image) {
+      object.style.left = `${slider.getValue() * ratio + constant}px`
+      image.style.left = `${slider.getValue() * ratio + constant * 2 + width}px`
+      image.style.transform = `translate(-50%, -50%) scale(${focus / (focus - (max.value - slider.getValue()))}) translateY(-50%)`
+      slider.listen('MDCSlider:input', e => {
+        const { value } = e.detail
+        const distance = max.value - value
+        const x = - (distance * focus) / (focus - distance)
+        object.style.left = `${value * ratio + constant}px`
+        image.style.left = `${x * ratio + constant * 2 + width}px`
+        image.style.transform = `translate(-50%, -50%) scale(${focus / (focus - distance)}) translateY(-50%)`
+        straight.style.transform = `rotate(${getSlopeAngle(h, -distance * ratio)}rad)`
+      })
+    }
+  }
+</script>
 <script webity>
   const MDCTable = $import('$mdc-table.html')
 </script>
