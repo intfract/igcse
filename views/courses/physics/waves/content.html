@@ -259,6 +259,7 @@
     const { width } = demoSlider.getBoundingClientRect()
     setPathWidth(line, width * 2)
     setPathWidth(straight, width * 2)
+    setPathWidth(refracted, width * 2)
     const ratio = width / (Number.parseInt(max.value) - Number.parseInt(min.value))
     const constant = Number.parseInt(window.getComputedStyle(demoSlider).marginLeft.slice(0, -2)) // mdc-slider margin
     const focus = 16 // focal distance
