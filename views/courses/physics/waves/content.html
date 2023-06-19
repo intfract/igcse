@@ -190,6 +190,9 @@
           </div>
         </div>
       </div>
+      <div>
+        <ul id="properties"></ul>
+      </div>
     </div>
     <h3 class="hidden offset">Total Interal Reflection</h3>
     <p class="hidden offset">Total internal reflection requires 2 conditions to happen.</p>
@@ -228,6 +231,7 @@
   const straight = document.querySelector('#straight')
   const refracted = document.querySelector('#refracted')
   const [object, image] = [document.querySelector('#object'), document.querySelector('#image')]
+  const properties = document.querySelector('#properties')
 
   if (demoSlider) {
     const slider = component('slider', demoSlider)
@@ -250,10 +254,18 @@
         const { value } = e.detail
         const distance = max.value - value
         const x = - (distance * focus) / (focus - distance)
+        let scale = focus / (focus - distance)
+
         object.style.left = `${value * ratio + constant}px`
         image.style.left = `${x * ratio + constant * 2 + width}px`
-        image.style.transform = `translate(-50%, -50%) scale(${focus / (focus - distance)}) translateY(-50%)`
+        image.style.transform = `translate(-50%, -50%) scale(${scale}) translateY(-50%)`
         straight.style.transform = `rotate(${getSlopeAngle(h, -distance * ratio)}rad)`
+
+        properties.innerHTML = ''
+        properties.innerHTML += `<li>Type: ${x == -Infinity ? '?' : (x > 0 ? 'Real' : 'Virtual')}</li>`
+        properties.innerHTML += `<li>Orientation: ${scale == Infinity ? '?' : (Math.abs(scale) / scale ? 'Upright' : 'Inverted')}</li>`
+        scale = Math.abs(scale)
+        properties.innerHTML += `<li>Scale: ${scale == Infinity ? '?' : (scale == 1 ? 'Equal' : (scale > 1 ? 'Enlarged' : 'Diminished'))}</li>`
       })
     }
   }
