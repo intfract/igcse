@@ -219,6 +219,11 @@ img.emoji {
   list-style-type: '-   ';
 }
 
+.equation {
+  margin-block: 1em 1em;
+  text-align: center;
+}
+
 .mdc-linear-progress--closed {
   display: none;
 }
