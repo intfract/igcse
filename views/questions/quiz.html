@@ -1,6 +1,24 @@
 <div class="quiz">
   <form>
-    <h3 class="hidden offset">Loading...</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3 class="hidden offset">Loading...</h3>
+      <div class="mdc-chip-set" role="grid">
+        <div class="mdc-chip" role="row">
+          <div class="mdc-chip__ripple"></div>
+          <span class="material-symbols-rounded mdc-chip__icon mdc-chip__icon--leading">finance</span>
+          <span class="mdc-chip__checkmark"> 
+            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+              <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+            </svg>
+          </span> 
+          <span role="gridcell">
+            <span role="checkbox" tabindex="0" aria-checked="true" class="mdc-chip__primary-action">
+              <span class="mdc-chip__text" id="difficulty">?</span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
     <p class="hidden offset" id="intro">Loading...</p>
     <ol class="hidden offset"></ol>
     <img src="" alt="" style="display: none;">

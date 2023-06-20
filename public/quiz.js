@@ -23,18 +23,6 @@ async function fill() {
   progress.close()
 }
 
-const scroller = document.querySelector('.mdc-tab-scroller__scroll-content')
-const form = document.querySelector('form')
-const labels = document.querySelectorAll('.radio label')
-const intro = document.querySelector('#intro')
-const task = document.querySelector('#task')
-const img = document.querySelector('form img')
-const ol = document.querySelector('form ol')
-const dialog = component('dialog', document.querySelector('.mdc-dialog'))
-const dialogTitle = document.querySelector('#dialog-title')
-const dialogContent = document.querySelector('#dialog-content')
-document.querySelector('form h3').innerHTML = window.location.pathname.split('/').at(-1).toUpperCase().split('_').join(' ')
-
 const scheme = {
   selective: [],
   theory: []

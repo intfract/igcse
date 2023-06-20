@@ -40,22 +40,7 @@ async function fill() {
       average += o.difficulty
     }
     average /= total
-    switch (Math.round(average)) {
-      case 0:
-        difficulty = 'Easy'
-        break
-      case 1:
-        difficulty = 'Medium'
-        break
-      case 2:
-        difficulty = 'Hard'
-        break
-      case 3:
-        difficulty = 'Tough'
-        break
-      default:
-        break
-    }
+    difficulty = getDifficulty(Math.round(average))
     tableContent.appendChild(row(subject, topic, i, difficulty, total))
   }
   dataTable = component('data-table', table)
@@ -97,17 +82,6 @@ async function fill() {
 }
 
 const table = document.querySelector('.mdc-data-table')
-const scroller = document.querySelector('.mdc-tab-scroller__scroll-content')
-const form = document.querySelector('form')
-const labels = document.querySelectorAll('.radio label')
-const intro = document.querySelector('#intro')
-const task = document.querySelector('#task')
-const img = document.querySelector('form img')
-const ol = document.querySelector('form ol')
-const dialog = component('dialog', document.querySelector('.mdc-dialog'))
-const dialogTitle = document.querySelector('#dialog-title')
-const dialogContent = document.querySelector('#dialog-content')
-document.querySelector('form h3').innerHTML = window.location.pathname.split('/').at(-1).toUpperCase().split('_').join(' ')
 let dataTable
 
 const scheme = {
