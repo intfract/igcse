@@ -13,7 +13,7 @@
         "33.6 kg"
       ],
       "scheme": 2,
-      "explanation": "The correct answer is: 10.2 kg. 4 moles of Al produces 2 moles of Al<sub>2</sub>O<sub>3</sub>. The mass of 4 Al is: 5400 grams. The relative atomic mass of Al is: 27 grams per mole. The number of moles is: 5400g ÷ 27g mol<sup>-1</sup> = 200mol. \nThere are 100 moles of Al<sub>2</sub>O<sub>3</sub> because every 4 moles of Al produces 2 moles of Al<sub>2</sub>O<sub>3</sub>. The relative atomic mass of Al<sub>2</sub>O<sub>3</sub> is: 104 grams per mole. The mass of 2 Al<sub>2</sub>O<sub>3</sub> is: 104g mol<sup>-1</sup> × 100mol = 10400g."
+      "explanation": "The correct answer is: 10.2 kg. Every 4 moles of aluminium make 2 moles of aluminium oxide. The relative atomic mass of aluminium is 27 g mol<sup>-1</sup>. The relative molecular mass of aluminium oxide is 102 g mol<sup>-1</sup>. \nThe mass of aluminium oxide produced is: 5400 g × (102 g mol<sup>-1</sup> ÷ 27 g mol<sup>-1</sup>) × (2 ÷ 4) = 10200 g."
     },
     {
       "intro": "Calcium carbide and water react to produce ethyne and calcium hydroxide. <div class=\"equation\">CaC<sub>2</sub> + 2 H<sub>2</sub>O → C<sub>2</sub>H<sub>2</sub> + Ca(OH)<sub>2</sub></div> The volume of one mole of any gas is 24 dm<sup>3</sup> at room temperature and pressure (r.t.p.).",
@@ -28,7 +28,7 @@
         "6 dm<sup>3</sup>"
       ],
       "scheme": 1,
-      "explanation": "The correct answer is: 30 dm<sup>3</sup>. The relative atomic mass of 2 H<sub>2</sub>O is: 2 × 18 g mol<sup>-1</sup> = 36 g mol<sup>-1</sup>. The number of moles of 2 H<sub>2</sub>O is: 45 g ÷ 36 g mol<sup>-1</sup> = 1.25 mol. \nThere is 1.25 moles of every reactant. The volume of C<sub>2</sub>H<sub>2</sub> produced is: 1.25 mol × 24 dm<sup>3</sup> = 30 dm<sup>3</sup>."
+      "explanation": "The correct answer is: 30 dm<sup>3</sup>. The relative molecular mass of H<sub>2</sub>O is: 18 g mol<sup>-1</sup>. The number of moles of water is: 45 g ÷ 18 g mol<sup>-1</sup> = 2.5 mol. The number of moles of ethyne is: 2.5 mol × (1 ÷ 2) = 1.25 mol. The volume of gas produced is: 1.25 mol × 24 dm<sup>3</sup> mol<sup>-1</sup> = 30 dm<sup>3</sup>"
     }
   ],
   "theory": []
