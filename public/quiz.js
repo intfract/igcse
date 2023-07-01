@@ -47,4 +47,8 @@ form.addEventListener('submit', e => {
   }
 })
 
+dialog.root.addEventListener('MDCDialog:closed', e => {
+  if (e.detail.action === 'report') window.open('https://github.com/intfract/igcse/issues/new')
+})
+
 fill()

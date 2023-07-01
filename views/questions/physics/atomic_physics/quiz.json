@@ -1,3 +1,20 @@
 {
-  
+  "selective": [
+    {
+      "intro": "Fusion is a type of nuclear reaction.",
+      "statements": [],
+      "image": "",
+      "question": "Which term below is a correct statement about nuclear fusion?",
+      "difficulty": 1,
+      "options": [
+        "It occurs in nuclear power stations.",
+        "It involves a larger nucleus decaying into two (or more) smaller nuclides.",
+        "Uranium is a type of fuel for nuclear fusion.",
+        "Light nuclei (such as hydrogen and helium) fuse together, releasing energy in the process."
+      ],
+      "scheme": 3,
+      "explanation": "The correct answer is: Light nuclei fuse together, releasing energy in the process. Nuclear fusion is a reaction that occurs in the Sun. The Sun releases energy by fusing hydrogen atoms together and helium atoms together."
+    }
+  ],
+  "theory": []
 }
