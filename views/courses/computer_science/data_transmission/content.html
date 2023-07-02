@@ -38,19 +38,34 @@
     <li>Resending only corrupted packets can save time and <strong>bandwidth</strong> compared to resending an entire file</li>
   </ul>
   <h2 class="hidden offset">Methods of Data Transmission</h2>
-  <p class="hidden offset"><strong>Serial</strong> means that bits are transmitted one after another along a single wire. <strong>Parallel</strong> transmission involes multiple wires transmitting bits simultaneously. Parallel transmission has the advantage of sending more bits per cycle. However, parallel transmission is more prone to <strong>errors</strong> than serial transmission.</p>
+  <p class="hidden offset">There are 2 ways data can be transmitted in terms of bits and wires.</p>
+  <ul class="hidden offset">
+    <li>
+      <strong>Serial</strong>: bits are transmitted <strong>one by one</strong> along a <strong>single wire</strong>
+    </li>
+    <li>
+      <strong>Parallel</strong>: bits are transmitted <strong>simulataneously</strong> across <strong>multiple wires</strong>
+    </li>
+  </ul>
+  <p class="hidden offset">Parallel transmission has the advantage of sending more bits per cycle. However, parallel transmission is more prone to <strong>errors</strong> than serial transmission.</p>
   <p class="hidden offset">There are 3 methods that determine the direction of data transmission.</p>
   <ul class="hidden offset">
-    <li><strong>Simplex</strong>: data transmission only occurs in one direction from the transmitter to the receiver</li>
-    <li><strong>Half-Duplex</strong>: data can be transmitted and received by both sides but both sides can't transmit at the same time</li>
-    <li><strong>Full-Duplex</strong>: data transmission can occur in both directions simultaneously</li>
+    <li>
+      <strong>Simplex</strong>: data transmission only occurs in one direction from the transmitter to the receiver
+    </li>
+    <li>
+      <strong>Half-Duplex</strong>: data can be transmitted and received by both sides but both sides can't transmit data at the same time
+    </li>
+    <li>
+      <strong>Full-Duplex</strong>: data transmission can occur in both directions simultaneously
+    </li>
   </ul>
   <div class="callout">
     <div class="emoji-container">
       🤔
     </div>
     <div class="notes">
-      A video streaming service might opt to use <strong>parallel</strong> <strong>half-duplex</strong> data transmission to upload videos to their web server. Parallel transmission allows a large amount of data to be transferred faster. Half-duplex transmission is appropriate because data can be uploaded and downloaded. However, uploading and downloading doesn't have to happen at the same time.
+      Data transmission cables are a combination of (serial or parallel) and (simplex or half-duplex or full-duplex).
     </div>
   </div>
 </section>
