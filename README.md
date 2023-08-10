@@ -10,6 +10,8 @@ The SSR system was built using my own TypeScript library called [webity](https:/
 
 A **FORK** and **STAR** shows that you support this project! 
 
+There is a [SvelteKit version](https://igcsekit.vercel.app/) of this web app available that has structured questions.
+
 ## License
 
 The license is a modified GNU license. You must: 
